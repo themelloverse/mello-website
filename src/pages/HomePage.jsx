@@ -5,6 +5,7 @@ import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
