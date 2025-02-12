@@ -9,7 +9,7 @@ const projects = [
     organization: "Rocket Innovation Studio",
     location: "Windsor, Ontario",
     description: "A collaborative platform with secure authentication and NLP-powered categorization.",
-    bgColor: "from-blue-300 to-indigo-500",
+    bgColor: "bg-blue-500", // Solid blue color
     technologies: [
       { name: "React", icon: SiTailwindcss },
       { name: "Node.js", icon: SiExpress },
@@ -26,7 +26,7 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "A donation platform connecting NGOs with surplus donors using geolocation filtering.",
-    bgColor: "from-pink-300 to-purple-500",
+    bgColor: "bg-purple-500", // Solid purple color
     technologies: [
       { name: "Django", icon: SiDjango },
       { name: "React", icon: SiTailwindcss },
@@ -42,13 +42,83 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "An AI-powered solution predicting employee turnover with 97% accuracy.",
-    bgColor: "from-green-300 to-teal-500",
+    bgColor: "bg-teal-500", // Solid teal color
     technologies: [
       { name: "Python", icon: SiJupyter },
       { name: "Jupyter", icon: SiJupyter },
       { name: "Tableau", icon: SiTableau },
     ],
     githubLink: "https://github.com/anishjm1998/EmployeeAttritionPrediction"
+  },
+  {
+    title: "💾 Distributed File System Using Socket Programming",
+    duration: "Jun 2024 - Jul 2024",
+    organization: "University of Windsor",
+    location: "Windsor, Ontario",
+    description: "Built a file system for file storage and retrieval across multiple servers using socket programming in C.",
+    bgColor: "bg-yellow-500", // Solid yellow color
+    technologies: [
+      { name: "C", icon: SiPostgresql },
+      { name: "Linux", icon: SiTailwindcss },
+      { name: "Socket Programming", icon: SiExpress },
+    ],
+    githubLink: "https://github.com/anishjm1998/Distributed-File-System-Using-Socket-Programming"
+  },
+  {
+    title: "🚜 Farm Monitoring System (CropWatch)",
+    duration: "Jan 2024 - Apr 2024",
+    organization: "University of Windsor",
+    location: "Windsor, Ontario",
+    description: "Developed ML models for crop health monitoring and real-time alert systems.",
+    bgColor: "bg-green-500", // Solid green color
+    technologies: [
+      { name: "Python", icon: SiPostgresql },
+      { name: "Flask", icon: SiTailwindcss },
+      { name: "JavaScript", icon: SiFigma },
+    ],
+    githubLink: "https://github.com/anishjm1998/CropWatch"
+  },
+  {
+    title: "✈️ Flight Price Analysis System (JetJourney)",
+    duration: "Jan 2024 - Apr 2024",
+    organization: "University of Windsor",
+    location: "Windsor, Ontario",
+    description: "Built a system to scrape flight prices and analyze trends using Java.",
+    bgColor: "bg-indigo-500", // Solid indigo color
+    technologies: [
+      { name: "Java", icon: SiDjango },
+      { name: "Selenium", icon: SiPostgresql },
+      { name: "JSoup", icon: SiTailwindcss },
+    ],
+    githubLink: "https://github.com/anishjm1998/JetJourney"
+  },
+  {
+    title: "🍔 Food Calorie Estimation using Deep Learning (CalorifyMe)",
+    duration: "Mar 2020 - May 2020",
+    organization: "Karunya University",
+    location: "Coimbatore, India",
+    description: "Developed a deep learning model to estimate food calories from images using MobileNetV2.",
+    bgColor: "bg-pink-500", // Solid pink color
+    technologies: [
+      { name: "TensorFlow", icon: SiPostgresql },
+      { name: "Android Studio", icon: SiTailwindcss },
+      { name: "Java", icon: SiFigma },
+    ],
+    githubLink: "https://github.com/anishjm1998/CalorifyMe"
+  },
+  {
+    title: "🎥 Movie Recommendation System (MovieGenie)",
+    duration: "Oct 2019 - Nov 2019",
+    organization: "Karunya University",
+    location: "Coimbatore, India",
+    description: "Built a web scraper and trained a Naïve Bayes model to recommend movies based on sentiment analysis.",
+    bgColor: "bg-teal-500", // Solid teal color
+    technologies: [
+      { name: "Python", icon: SiPostgresql },
+      { name: "Beautiful Soup", icon: SiFigma },
+      { name: "Android Studio", icon: SiTailwindcss },
+    ],
+    githubLink: "https://github.com/anishjm1998/MovieGenie"
   }
 ];
 
@@ -56,10 +126,9 @@ const ProjectCard = ({ project }) => {
   return (
     <div
       className={`rounded-3xl p-8 shadow-lg transition-transform transform hover:-translate-y-2 
-                  hover:shadow-2xl bg-gradient-to-br ${project.bgColor} text-white`}
+                  hover:shadow-2xl ${project.bgColor} text-white`}
       style={{
-        backdropFilter: "blur(20px)",
-        boxShadow: "0 15px 40px rgba(0, 0, 0, 0.2)",
+        boxShadow: "0 15px 40px rgba(0, 0, 0, 0.1)",
       }}
     >
       <div className="flex justify-between items-start">
@@ -105,7 +174,7 @@ const ProjectCard = ({ project }) => {
 
 const ProjectPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-blue-200 py-20">
+    <div className="min-h-screen bg-gray-100 py-20">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-extrabold text-gray-900">✨ Featured Projects ✨</h1>

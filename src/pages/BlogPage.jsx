@@ -1,55 +1,53 @@
-import React, { useState } from 'react';
-import { FaBook, FaClock } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { FaBook, FaExternalLinkAlt } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Midnight Traveler",
-    content: "A deep exploration of a mysterious journey through time and space...",
-    excerpt: "A short story about a mysterious journey through time and space...",
-    date: "2024-01-15",
-    readTime: "5 min read",
-    category: "Science Fiction",
-    tags: ["Time Travel", "Sci-Fi"],
-    image: "https://via.placeholder.com/400",
-  },
-  {
-    id: 2,
-    title: "Echoes of Silence",
-    content: "A haunting tale of memory and loss in a dystopian world...",
-    excerpt: "A haunting tale of memory and loss in a dystopian world...",
-    date: "2024-01-22",
-    readTime: "7 min read",
-    category: "Dystopian",
-    tags: ["Dystopia", "Psychological"],
-    image: "https://via.placeholder.com/400",
-  },
+const originalBlogPosts = [
+  { id: 1, title: "🌌 The Midnight Traveler", category: "Science Fiction", tags: ["Time Travel", "Adventure"], color: "bg-blue-200" },
+  { id: 2, title: "🕰️ Echoes of Silence", category: "Dystopian", tags: ["Psychological", "Thriller"], color: "bg-pink-200" },
+  { id: 3, title: "💭 The Dreamcatcher's Secret", category: "Fantasy", tags: ["Magic", "Mystery"], color: "bg-green-200" },
+  { id: 4, title: "🌊 The Lost City of Avaris", category: "Fantasy", tags: ["Mythology", "Ancient Legends"], color: "bg-cyan-200" },
+  { id: 5, title: "🚀 A New Dawn in Andromeda", category: "Science Fiction", tags: ["Space Exploration", "Aliens"], color: "bg-orange-200" },
+  { id: 6, title: "🖤 The Last Echo", category: "Dystopian", tags: ["Survival", "Post-Apocalypse"], color: "bg-gray-300" },
 ];
 
+const categories = ["All", "Science Fiction", "Fantasy", "Dystopian"];
+
 const BlogPage = () => {
-  const [filter, setFilter] = useState('All');
+  const location = useLocation();
+  const [filter, setFilter] = useState(localStorage.getItem("selectedCategory") || "All");
+  const [filteredPosts, setFilteredPosts] = useState(originalBlogPosts);
 
-  const categories = ['All', 'Science Fiction', 'Fantasy', 'Dystopian'];
-
-  const filteredPosts = filter === 'All' 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === filter);
+  useEffect(() => {
+    localStorage.setItem("selectedCategory", filter);
+    if (filter === "All") {
+      setFilteredPosts(originalBlogPosts);
+    } else {
+      const filtered = originalBlogPosts.filter(post => post.category === filter);
+      setFilteredPosts([...filtered, ...Array(Math.max(0, 6 - filtered.length)).fill(null)]); // Add placeholders
+    }
+  }, [filter]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 py-16">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-12 dark:text-white">Fiction Blog</h1>
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-100 to-gray-200 py-20">
+      <div className="max-w-6xl mx-auto px-6 w-full flex flex-col flex-grow">
         
-        {/* Filter Buttons */}
-        <div className="flex justify-center mb-8 space-x-4">
+        {/* Page Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-extrabold text-gray-900">📖 Fiction Stories</h1>
+          <p className="text-lg text-gray-600 mt-2">Step into different worlds with my collection of immersive stories.</p>
+        </div>
+
+        {/* Category Filters */}
+        <div className="flex justify-center mb-10 space-x-4">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-4 py-2 rounded-full flex items-center ${
-                filter === category 
-                  ? 'bg-primary text-white' 
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white'
+              className={`px-5 py-2 rounded-full flex items-center text-lg font-medium transition ${
+                filter === category
+                  ? "bg-gray-900 text-white shadow-md"
+                  : "bg-gray-300 text-gray-800 hover:bg-gray-400"
               }`}
             >
               <FaBook className="mr-2" />
@@ -58,42 +56,44 @@ const BlogPage = () => {
           ))}
         </div>
 
-        {/* Blog Posts Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {filteredPosts.map((post) => (
-            <div 
-              key={post.id} 
-              className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transform transition hover:scale-105"
-            >
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="flex items-center text-sm text-gray-500 dark:text-gray-300">
-                    <FaClock className="mr-2" /> {post.date} • {post.readTime}
-                  </span>
-                  <span className="bg-primary/10 text-primary dark:text-primary-200 px-2 py-1 rounded-full text-xs">
-                    {post.category}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold mb-2 dark:text-white">{post.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
-                <div className="flex space-x-2">
+        {/* Blog Cards Grid (Always 6 slots) */}
+        <div className="grid md:grid-cols-3 gap-10 flex-grow">
+          {filteredPosts.map((post, index) =>
+            post ? (
+              <a
+                key={post.id}
+                href={`/blog/${post.id}`}
+                className={`${post.color} rounded-3xl p-6 shadow-lg transition-transform transform hover:-translate-y-2 hover:shadow-2xl block`}
+              >
+                <h3 className="text-2xl font-bold text-gray-900">{post.title}</h3>
+                <p className="mt-2 text-sm font-medium text-gray-700 bg-white bg-opacity-50 px-3 py-1 rounded-full inline-block">
+                  {post.category}
+                </p>
+                <div className="flex flex-wrap gap-2 mt-3">
                   {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded-full text-xs"
-                    >
+                    <span key={tag} className="bg-white bg-opacity-50 text-gray-700 px-3 py-1 rounded-full text-sm">
                       {tag}
                     </span>
                   ))}
                 </div>
-              </div>
-            </div>
-          ))}
+              </a>
+            ) : (
+              <div key={`empty-${index}`} className="opacity-0"></div> // Invisible placeholder
+            )
+          )}
+        </div>
+
+        {/* Read More Section */}
+        <div className="mt-16 text-center">
+          <p className="text-lg text-gray-600">📚 This is just a glimpse of my stories!</p>
+          <a
+            href="https://jacobeanforlife.wordpress.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-6 py-3 mt-4 text-lg font-semibold text-white bg-gray-900 rounded-full shadow-md transition hover:bg-gray-800"
+          >
+            Explore My Blog <FaExternalLinkAlt className="ml-2" />
+          </a>
         </div>
       </div>
     </div>

@@ -32,25 +32,22 @@ const Blog = () => {
     filter === "All" ? blogPosts : blogPosts.filter((post) => post.category === filter);
 
   return (
-    <section className="min-h-screen py-20 bg-gradient-to-r from-indigo-50 via-gray-50 to-indigo-100">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#e0e7ff_1px,transparent_1px)] opacity-[0.025]" />
+    <section className="relative py-24 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 via-white to-purple-200" />
 
-      <div className="container mx-auto px-6 relative">
+      {/* Floating radial pattern */}
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle,#6366F1_1px,transparent_1px)] [background-size:16px_16px]" />
+
+      <div className="relative container mx-auto px-6">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-6"
-          >
-            <h1 className="text-5xl font-semibold text-gray-900 leading-tight">
-              Stories That <span className="text-indigo-600">Inspire</span>
-            </h1>
-            <p className="text-lg text-gray-600 max-w-xl mx-auto">
-              Discover worlds of imagination through a curated collection of thoughtful fiction.
-            </p>
-          </motion.div>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+            📚 Stories That Inspire
+          </h2>
+          <p className="text-lg text-gray-600 font-light">
+            Discover worlds of imagination through a curated collection of thoughtful fiction.
+          </p>
         </div>
 
         {/* Category Filters */}
@@ -85,7 +82,7 @@ const Blog = () => {
                 className="group cursor-pointer"
               >
                 {/* Card */}
-                <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full overflow-hidden group hover:-translate-y-2">
+                <div className="relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 h-full overflow-hidden group hover:-translate-y-2">
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden">
                     <img

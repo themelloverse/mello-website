@@ -6,7 +6,6 @@ import { Textarea } from "./ui/textarea";
 import { Alert, AlertDescription } from "./ui/alert";
 import { Loader2 } from "lucide-react";
 
-// Main Contact Component
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -26,32 +25,30 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-gradient-to-r from-blue-50 to-teal-50">
-      <div className="container mx-auto px-4 text-center">
+    <section id="contact" className="relative py-24 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 via-white to-purple-200" />
+
+      {/* Floating radial pattern */}
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle,#6366F1_1px,transparent_1px)] [background-size:16px_16px]" />
+
+      <div className="relative container mx-auto px-6">
         {/* Header */}
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl font-bold text-gray-900 mb-4"
-        >
-          Contact Me
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg text-gray-600 max-w-2xl mx-auto mb-8"
-        >
-          Have a project in mind? Let's connect and bring your ideas to life!
-        </motion.p>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+            📬 Contact Me
+          </h2>
+          <p className="text-lg text-gray-600 font-light">
+            Have a project in mind? Let's connect and bring your ideas to life!
+          </p>
+        </div>
 
         {/* Form Container */}
         <motion.div
+          className="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <Input
@@ -80,7 +77,7 @@ const Contact = () => {
             {/* Submit Button */}
             <Button
               type="submit"
-              className="w-full bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all duration-300"
+              className="w-full bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-all duration-300"
               disabled={isLoading}
             >
               {isLoading ? (
