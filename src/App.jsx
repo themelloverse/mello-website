@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Import Navigate
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import SkillPage from './pages/SkillPage';
-import ProjectPage from './pages/ProjectPage'; // This should be the main projects page
+import ProjectPage from './pages/ProjectPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 
@@ -16,10 +16,14 @@ function App() {
         <Navbar />
         <div className="pt-16"> {/* Add top padding to avoid overlap with navbar */}
           <Routes>
+            {/* Redirect /ajm-portfolio to the homepage */}
+            <Route path="/ajm-portfolio" element={<Navigate to="/" />} />
+            
+            {/* All other routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/skills" element={<SkillPage />} />
-            <Route path="/projects" element={<ProjectPage />} /> {/* Direct link to ProjectPage */}
+            <Route path="/projects" element={<ProjectPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>

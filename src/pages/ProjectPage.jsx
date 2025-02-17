@@ -9,7 +9,7 @@ const projects = [
     organization: "Rocket Innovation Studio",
     location: "Windsor, Ontario",
     description: "A collaborative platform with secure authentication and NLP-powered categorization.",
-    bgColor: "bg-blue-500", // Solid blue color
+    bgColor: "bg-gray-100", // Light gray for a subtle look
     technologies: [
       { name: "React", icon: SiTailwindcss },
       { name: "Node.js", icon: SiExpress },
@@ -26,7 +26,7 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "A donation platform connecting NGOs with surplus donors using geolocation filtering.",
-    bgColor: "bg-purple-500", // Solid purple color
+    bgColor: "bg-gray-200", // Subtle light grey
     technologies: [
       { name: "Django", icon: SiDjango },
       { name: "React", icon: SiTailwindcss },
@@ -42,7 +42,7 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "An AI-powered solution predicting employee turnover with 97% accuracy.",
-    bgColor: "bg-teal-500", // Solid teal color
+    bgColor: "bg-gray-100", // Soft gray
     technologies: [
       { name: "Python", icon: SiJupyter },
       { name: "Jupyter", icon: SiJupyter },
@@ -56,7 +56,7 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "Built a file system for file storage and retrieval across multiple servers using socket programming in C.",
-    bgColor: "bg-yellow-500", // Solid yellow color
+    bgColor: "bg-gray-200", // Soft light grey for less brightness
     technologies: [
       { name: "C", icon: SiPostgresql },
       { name: "Linux", icon: SiTailwindcss },
@@ -70,7 +70,7 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "Developed ML models for crop health monitoring and real-time alert systems.",
-    bgColor: "bg-green-500", // Solid green color
+    bgColor: "bg-gray-100", // Light gray tone
     technologies: [
       { name: "Python", icon: SiPostgresql },
       { name: "Flask", icon: SiTailwindcss },
@@ -84,7 +84,7 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "Built a system to scrape flight prices and analyze trends using Java.",
-    bgColor: "bg-indigo-500", // Solid indigo color
+    bgColor: "bg-gray-200", // Subtle light grey
     technologies: [
       { name: "Java", icon: SiDjango },
       { name: "Selenium", icon: SiPostgresql },
@@ -98,7 +98,7 @@ const projects = [
     organization: "Karunya University",
     location: "Coimbatore, India",
     description: "Developed a deep learning model to estimate food calories from images using MobileNetV2.",
-    bgColor: "bg-pink-500", // Solid pink color
+    bgColor: "bg-gray-100", // Light gray for consistency
     technologies: [
       { name: "TensorFlow", icon: SiPostgresql },
       { name: "Android Studio", icon: SiTailwindcss },
@@ -112,7 +112,7 @@ const projects = [
     organization: "Karunya University",
     location: "Coimbatore, India",
     description: "Built a web scraper and trained a Naïve Bayes model to recommend movies based on sentiment analysis.",
-    bgColor: "bg-teal-500", // Solid teal color
+    bgColor: "bg-gray-200", // Muted grey
     technologies: [
       { name: "Python", icon: SiPostgresql },
       { name: "Beautiful Soup", icon: SiFigma },
@@ -126,14 +126,14 @@ const ProjectCard = ({ project }) => {
   return (
     <div
       className={`rounded-3xl p-8 shadow-lg transition-transform transform hover:-translate-y-2 
-                  hover:shadow-2xl ${project.bgColor} text-white`}
+                  hover:shadow-2xl ${project.bgColor} text-gray-800 border border-gray-300`} // Added border
       style={{
-        boxShadow: "0 15px 40px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)", // Softer shadow
       }}
     >
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-3xl font-bold">{project.title}</h2>
+          <h2 className="text-3xl font-semibold">{project.title}</h2>
           <div className="text-lg mt-2 opacity-90">
             <span>{project.duration}</span> • <span>{project.organization}</span>
           </div>
@@ -161,7 +161,7 @@ const ProjectCard = ({ project }) => {
         {project.technologies.map((tech, index) => (
           <div
             key={index}
-            className="flex items-center px-3 py-2 bg-white bg-opacity-20 rounded-full shadow-sm backdrop-blur-md"
+            className="flex items-center px-3 py-2 bg-white bg-opacity-20 rounded-full shadow-sm backdrop-blur-md hover:scale-105 transition-all duration-300"
           >
             <tech.icon className="mr-2" />
             <span className="text-sm font-medium">{tech.name}</span>
@@ -174,7 +174,7 @@ const ProjectCard = ({ project }) => {
 
 const ProjectPage = () => {
   return (
-    <div className="min-h-screen bg-gray-100 py-20">
+    <div className="min-h-screen bg-[#EFF6FF] py-20"> {/* Light blue background */}
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-extrabold text-gray-900">✨ Featured Projects ✨</h1>
