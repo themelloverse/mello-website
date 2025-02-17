@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Import Navigate
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -11,15 +11,11 @@ import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <Router>
+    <Router> {/* No basename, so it works normally in development */}
       <div className="App bg-white text-gray-900 min-h-screen flex flex-col">
         <Navbar />
-        <div className="pt-16"> {/* Add top padding to avoid overlap with navbar */}
+        <div className="pt-16"> {/* Prevent overlap with navbar */}
           <Routes>
-            {/* Redirect /ajm-portfolio to the homepage */}
-            <Route path="/ajm-portfolio" element={<Navigate to="/" />} />
-            
-            {/* All other routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/skills" element={<SkillPage />} />

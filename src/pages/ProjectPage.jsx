@@ -1,123 +1,104 @@
 import React from 'react';
 import { FaGithub, FaMapMarkerAlt } from 'react-icons/fa';
-import { SiPostgresql, SiDjango, SiTailwindcss, SiGooglemaps, SiJupyter, SiTableau, SiFigma, SiExpress } from 'react-icons/si';
 
 const projects = [
   {
-    title: "💡 Idea Submission Platform",
+    title: "Wordle Solver",
+    duration: "Jan 2025 - Feb 2025",
+    organization: "Personal Project",
+    location: "Windsor, Ontario",
+    description: "A web-based Wordle solver that provides suggestions based on previous guesses and feedback.",
+    bgColor: "bg-teal-100",  // Changed to teal
+    borderColor: "border-teal-500",  // Changed to teal
+    technologies: ["React", "TypeScript", "JavaScript", "TailwindCSS"],
+    githubLink: "https://github.com/anishjm1998/wordle-solver"
+  },
+  {
+    title: "Idea Submission Platform",
     duration: "Sep 2024 - Dec 2024",
     organization: "Rocket Innovation Studio",
     location: "Windsor, Ontario",
     description: "A collaborative platform with secure authentication and NLP-powered categorization.",
-    bgColor: "bg-gray-100", // Light gray for a subtle look
-    technologies: [
-      { name: "React", icon: SiTailwindcss },
-      { name: "Node.js", icon: SiExpress },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Python", icon: SiJupyter },
-      { name: "Docker", icon: SiGooglemaps },
-      { name: "Figma", icon: SiFigma },
-    ],
+    bgColor: "bg-blue-100",
+    borderColor: "border-blue-600",
+    technologies: ["React", "Node.js", "PostgreSQL", "Python", "Docker", "Figma"],
     githubLink: "https://github.com/anishjm1998/mind-palace"
   },
   {
-    title: "🌍 Surplus Resources Donation Platform",
+    title: "Surplus Resources Donation Platform",
     duration: "Sep 2024 - Dec 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "A donation platform connecting NGOs with surplus donors using geolocation filtering.",
-    bgColor: "bg-gray-200", // Subtle light grey
-    technologies: [
-      { name: "Django", icon: SiDjango },
-      { name: "React", icon: SiTailwindcss },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Docker", icon: SiGooglemaps },
-      { name: "Google Maps", icon: SiGooglemaps },
-    ],
+    bgColor: "bg-pink-100",
+    borderColor: "border-pink-600",
+    technologies: ["Django", "React", "PostgreSQL", "Docker", "Google Maps"],
     githubLink: "https://github.com/anishjm1998/samaritan-connect"
   },
   {
-    title: "📊 Predictive Analysis of Employee Attrition",
+    title: "Predictive Analysis of Employee Attrition",
     duration: "Jun 2024 - Aug 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "An AI-powered solution predicting employee turnover with 97% accuracy.",
-    bgColor: "bg-gray-100", // Soft gray
-    technologies: [
-      { name: "Python", icon: SiJupyter },
-      { name: "Jupyter", icon: SiJupyter },
-      { name: "Tableau", icon: SiTableau },
-    ],
+    bgColor: "bg-green-100",
+    borderColor: "border-green-600",
+    technologies: ["Python", "Jupyter", "Tableau"],
     githubLink: "https://github.com/anishjm1998/EmployeeAttritionPrediction"
   },
   {
-    title: "💾 Distributed File System Using Socket Programming",
+    title: "Distributed File System Using Socket Programming",
     duration: "Jun 2024 - Jul 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "Built a file system for file storage and retrieval across multiple servers using socket programming in C.",
-    bgColor: "bg-gray-200", // Soft light grey for less brightness
-    technologies: [
-      { name: "C", icon: SiPostgresql },
-      { name: "Linux", icon: SiTailwindcss },
-      { name: "Socket Programming", icon: SiExpress },
-    ],
+    bgColor: "bg-orange-100",
+    borderColor: "border-orange-600",
+    technologies: ["C", "Linux", "Socket Programming"],
     githubLink: "https://github.com/anishjm1998/Distributed-File-System-Using-Socket-Programming"
   },
   {
-    title: "🚜 Farm Monitoring System (CropWatch)",
+    title: "Farm Monitoring System (CropWatch)",
     duration: "Jan 2024 - Apr 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "Developed ML models for crop health monitoring and real-time alert systems.",
-    bgColor: "bg-gray-100", // Light gray tone
-    technologies: [
-      { name: "Python", icon: SiPostgresql },
-      { name: "Flask", icon: SiTailwindcss },
-      { name: "JavaScript", icon: SiFigma },
-    ],
+    bgColor: "bg-yellow-100",
+    borderColor: "border-yellow-600",
+    technologies: ["Python", "Flask", "JavaScript"],
     githubLink: "https://github.com/anishjm1998/CropWatch"
   },
   {
-    title: "✈️ Flight Price Analysis System (JetJourney)",
+    title: "Flight Price Analysis System (JetJourney)",
     duration: "Jan 2024 - Apr 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "Built a system to scrape flight prices and analyze trends using Java.",
-    bgColor: "bg-gray-200", // Subtle light grey
-    technologies: [
-      { name: "Java", icon: SiDjango },
-      { name: "Selenium", icon: SiPostgresql },
-      { name: "JSoup", icon: SiTailwindcss },
-    ],
+    bgColor: "bg-indigo-100",
+    borderColor: "border-indigo-600",
+    technologies: ["Java", "Selenium", "JSoup"],
     githubLink: "https://github.com/anishjm1998/JetJourney"
   },
   {
-    title: "🍔 Food Calorie Estimation using Deep Learning (CalorifyMe)",
+    title: "Food Calorie Estimation using Deep Learning (CalorifyMe)",
     duration: "Mar 2020 - May 2020",
     organization: "Karunya University",
     location: "Coimbatore, India",
     description: "Developed a deep learning model to estimate food calories from images using MobileNetV2.",
-    bgColor: "bg-gray-100", // Light gray for consistency
-    technologies: [
-      { name: "TensorFlow", icon: SiPostgresql },
-      { name: "Android Studio", icon: SiTailwindcss },
-      { name: "Java", icon: SiFigma },
-    ],
+    bgColor: "bg-red-100",
+    borderColor: "border-red-600",
+    technologies: ["TensorFlow", "Android Studio", "Java"],
     githubLink: "https://github.com/anishjm1998/CalorifyMe"
   },
   {
-    title: "🎥 Movie Recommendation System (MovieGenie)",
+    title: "Movie Recommendation System (MovieGenie)",
     duration: "Oct 2019 - Nov 2019",
     organization: "Karunya University",
     location: "Coimbatore, India",
     description: "Built a web scraper and trained a Naïve Bayes model to recommend movies based on sentiment analysis.",
-    bgColor: "bg-gray-200", // Muted grey
-    technologies: [
-      { name: "Python", icon: SiPostgresql },
-      { name: "Beautiful Soup", icon: SiFigma },
-      { name: "Android Studio", icon: SiTailwindcss },
-    ],
+    bgColor: "bg-purple-100",
+    borderColor: "border-purple-600",
+    technologies: ["Beautiful Soup", "Android Studio", "Python"],
     githubLink: "https://github.com/anishjm1998/MovieGenie"
   }
 ];
@@ -125,48 +106,52 @@ const projects = [
 const ProjectCard = ({ project }) => {
   return (
     <div
-      className={`rounded-3xl p-8 shadow-lg transition-transform transform hover:-translate-y-2 
-                  hover:shadow-2xl ${project.bgColor} text-gray-800 border border-gray-300`} // Added border
+      className={`relative rounded-3xl p-8 shadow-lg border-2 ${project.borderColor} ${project.bgColor} text-gray-900`}
       style={{
-        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)", // Softer shadow
+        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+        minHeight: "400px",
       }}
     >
-      <div className="flex justify-between items-start">
-        <div>
-          <h2 className="text-3xl font-semibold">{project.title}</h2>
-          <div className="text-lg mt-2 opacity-90">
-            <span>{project.duration}</span> • <span>{project.organization}</span>
-          </div>
-          <div className="flex items-center mt-1 opacity-90">
-            <FaMapMarkerAlt className="mr-2" />
+      <div className="flex flex-col h-full">
+        {/* Title */}
+        <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
+
+        {/* Project details below title */}
+        <div className="space-y-1 mb-4">
+          <div className="text-sm text-gray-700">{project.duration}</div>
+          <div className="text-sm text-gray-700">{project.organization}</div>
+          <div className="flex items-center text-sm text-gray-700">
+            <FaMapMarkerAlt className="mr-1 text-xs" />
             <span>{project.location}</span>
           </div>
         </div>
 
-        {/* Floating GitHub Button */}
+        {/* Description with enhanced styling */}
+        <p className="text-md text-gray-700 bg-white bg-opacity-40 rounded-lg p-3 shadow-sm leading-relaxed mb-auto">{project.description}</p>
+
+        {/* Technologies - at bottom with slightly larger size */}
+        <div className="mt-4 mb-8">
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech, index) => (
+              <div
+                key={index}
+                className="flex items-center px-3 py-1.5 bg-white bg-opacity-80 rounded-full border border-gray-400 shadow-sm hover:scale-105 transition-all duration-300"
+              >
+                <span className="text-sm font-medium">{tech}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* GitHub icon in bottom-right corner */}
         <a
           href={project.githubLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition"
+          className="absolute bottom-4 right-4 p-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition"
         >
-          <FaGithub className="text-xl" />
+          <FaGithub className="text-base" />
         </a>
-      </div>
-
-      <p className="text-lg mt-4 opacity-90">{project.description}</p>
-
-      {/* Tech Stack */}
-      <div className="flex flex-wrap gap-3 mt-5">
-        {project.technologies.map((tech, index) => (
-          <div
-            key={index}
-            className="flex items-center px-3 py-2 bg-white bg-opacity-20 rounded-full shadow-sm backdrop-blur-md hover:scale-105 transition-all duration-300"
-          >
-            <tech.icon className="mr-2" />
-            <span className="text-sm font-medium">{tech.name}</span>
-          </div>
-        ))}
       </div>
     </div>
   );
@@ -174,14 +159,10 @@ const ProjectCard = ({ project }) => {
 
 const ProjectPage = () => {
   return (
-    <div className="min-h-screen bg-[#EFF6FF] py-20"> {/* Light blue background */}
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold text-gray-900">✨ Featured Projects ✨</h1>
-          <p className="text-xl text-gray-600 mt-2">Showcasing my journey through technology & innovation</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12">
+    <div className="min-h-screen bg-[#E1F5FE] py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <h1 className="text-6xl font-extrabold text-gray-900 text-center mb-16">Featured Projects</h1>
+        <div className="grid md:grid-cols-3 gap-12">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

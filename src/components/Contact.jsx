@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Alert, AlertDescription } from "./ui/alert";
 import { Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -25,68 +26,87 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <h2 className="text-3xl font-bold text-gray-800">Contact</h2>
-        <p className="text-lg text-gray-600 mt-2">Let's work together! Reach out and I’ll get back to you soon.</p>
-      </div>
+    <section id="contact" className="py-20 bg-[#F5F3EF]">
+      <div className="container mx-auto px-6 text-center max-w-3xl">
+        {/* Header */}
+        <h2 className="text-4xl font-bold text-gray-900 font-poppins mb-4">Let’s Connect</h2>
 
-      <motion.div
-        className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-      >
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <Input
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your Name"
-            required
-            className="border border-gray-300 rounded-lg p-4 text-gray-700 focus:ring-2 focus:ring-indigo-500"
-          />
-          <Input
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Your Email"
-            required
-            className="border border-gray-300 rounded-lg p-4 text-gray-700 focus:ring-2 focus:ring-indigo-500"
-          />
-          <Textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your Message"
-            required
-            className="border border-gray-300 rounded-lg p-4 text-gray-700 focus:ring-2 focus:ring-indigo-500"
-          />
+        {/* Contact Form */}
+        <motion.div
+          className="mt-10 p-6 rounded-xl bg-[#F0EFE6] border-2 border-black/30 shadow-md max-w-lg mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="flex flex-col text-left">
+              <label className="text-gray-700 font-medium mb-1 font-poppins">Your Name</label>
+              <Input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="John Doe"
+                required
+                className="border border-black/30 bg-[#F9F7F3] text-gray-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gray-500 transition-all duration-300 font-poppins"
+              />
+            </div>
 
-          <Button
-            type="submit"
-            className="w-full bg-indigo-600 text-white font-semibold rounded-lg py-3 hover:bg-indigo-700 transition duration-300"
-            disabled={isLoading}
+            <div className="flex flex-col text-left">
+              <label className="text-gray-700 font-medium mb-1 font-poppins">Your Email</label>
+              <Input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="john@example.com"
+                required
+                className="border border-black/30 bg-[#F9F7F3] text-gray-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gray-500 transition-all duration-300 font-poppins"
+              />
+            </div>
+
+            <div className="flex flex-col text-left">
+              <label className="text-gray-700 font-medium mb-1 font-poppins">Your Message</label>
+              <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Write your message..."
+                required
+                className="border border-black/30 bg-[#F9F7F3] text-gray-800 rounded-lg px-4 py-2 h-24 focus:ring-2 focus:ring-gray-500 transition-all duration-300 font-poppins"
+              />
+            </div>
+
+            <motion.button
+              type="submit"
+              className="w-full bg-[#8B6F47] text-white font-bold font-poppins rounded-lg py-3 hover:bg-[#B99F82] transition duration-300 shadow-md"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 animate-spin h-5 w-5" />
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
+            </motion.button>
+          </form>
+        </motion.div>
+
+        {/* View Full Contact Page Button */}
+        <div className="text-center mt-12">
+          <motion.button
+            onClick={() => {
+              window.scrollTo(0, 0);
+              navigate("/contact");
+            }}
+            className="px-8 py-3 border border-gray-400 text-gray-800 rounded-full bg-white hover:bg-gray-100 shadow-md transition duration-300 transform hover:scale-105 font-sans"
+            whileHover={{ scale: 1.05 }}
           >
-            {isLoading ? (
-              <>
-                <Loader2 className="mr-2 animate-spin h-5 w-5" />
-                Sending...
-              </>
-            ) : (
-              "Send Message"
-            )}
-          </Button>
-        </form>
-
-        {/* Success Message */}
-        {submitted && (
-          <Alert className="mt-4 bg-green-100 border-l-4 border-green-500 text-green-700 rounded-lg p-3">
-            <AlertDescription>Thanks for reaching out! I’ll get back to you soon.</AlertDescription>
-          </Alert>
-        )}
-      </motion.div>
+            View Full Contact Page
+          </motion.button>
+        </div>
+      </div>
     </section>
   );
 };
