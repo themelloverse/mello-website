@@ -27,6 +27,16 @@ const blogPosts = [
     bgColor: "bg-purple-100",
     borderColor: "border-purple-600",
   },
+  {
+    id: 3,
+    title: "Whispers in the Wind",
+    excerpt: "Exploring the hidden voices of the past...",
+    date: "2024-02-10",
+    readTime: "6 min read",
+    category: "Mystery",
+    bgColor: "bg-green-100",
+    borderColor: "border-green-600",
+  },
 ];
 
 const fadeIn = {
@@ -38,7 +48,7 @@ const Blog = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative py-20 bg-[#FAF4EF]">
+    <section className="relative py-20 bg-[#F5F3EF]">
       <motion.div
         className="relative container mx-auto px-6"
         initial="hidden"
@@ -54,12 +64,12 @@ const Blog = () => {
         </div>
 
         {/* Blog Cards */}
-        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {blogPosts.map((post) => (
             <motion.div
               key={post.id}
-              className={`rounded-xl p-6 border ${post.borderColor} 
-                          shadow-sm hover:shadow-lg transition-all duration-300 
+              className={`rounded-xl p-8 border ${post.borderColor} 
+                          shadow-xl hover:shadow-2xl transition-all duration-300 
                           ${post.bgColor} cursor-pointer flex flex-col justify-between`}
               whileHover={{ scale: 1.02 }}
               onClick={() => navigate("/blog")}
@@ -72,12 +82,12 @@ const Blog = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 className="text-2xl font-semibold text-gray-900">
                 {post.title}
               </h3>
 
               {/* Excerpt */}
-              <p className="text-gray-700 text-sm mt-2">{post.excerpt}</p>
+              <p className="text-gray-700 text-base mt-3">{post.excerpt}</p>
             </motion.div>
           ))}
         </div>

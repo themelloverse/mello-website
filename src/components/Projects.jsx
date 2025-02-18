@@ -47,7 +47,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="relative py-20 bg-[#FAF4EF]">
+    <section id="projects" className="relative py-20 bg-[#F5F3EF]">
       <motion.div
         className="relative container mx-auto px-6"
         initial="hidden"
