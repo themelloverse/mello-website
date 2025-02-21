@@ -8,13 +8,13 @@ const projects = [
     organization: "Personal Project",
     location: "Windsor, Ontario",
     description: "A web-based Wordle solver that provides suggestions based on previous guesses and feedback.",
-    bgColor: "bg-teal-100",  // Changed to teal
-    borderColor: "border-teal-500",  // Changed to teal
+    bgColor: "bg-teal-100",  
+    borderColor: "border-teal-500",  
     technologies: ["React", "TypeScript", "JavaScript", "TailwindCSS"],
     githubLink: "https://github.com/anishjm1998/wordle-solver"
   },
   {
-    title: "Idea Submission Platform",
+    title: "Idea Collaboration Platform (Mind Palace)",
     duration: "Sep 2024 - Dec 2024",
     organization: "Rocket Innovation Studio",
     location: "Windsor, Ontario",
@@ -25,7 +25,7 @@ const projects = [
     githubLink: "https://github.com/anishjm1998/mind-palace"
   },
   {
-    title: "Surplus Resources Donation Platform",
+    title: "Surplus Resources Donation Platform (Samaritan Connect)",
     duration: "Sep 2024 - Dec 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
@@ -41,8 +41,8 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "An AI-powered solution predicting employee turnover with 97% accuracy.",
-    bgColor: "bg-green-100",
-    borderColor: "border-green-600",
+    bgColor: "bg-orange-100",
+    borderColor: "border-orange-600",
     technologies: ["Python", "Jupyter", "Tableau"],
     githubLink: "https://github.com/anishjm1998/EmployeeAttritionPrediction"
   },
@@ -52,8 +52,8 @@ const projects = [
     organization: "University of Windsor",
     location: "Windsor, Ontario",
     description: "Built a file system for file storage and retrieval across multiple servers using socket programming in C.",
-    bgColor: "bg-orange-100",
-    borderColor: "border-orange-600",
+    bgColor: "bg-green-100",
+    borderColor: "border-green-600",
     technologies: ["C", "Linux", "Socket Programming"],
     githubLink: "https://github.com/anishjm1998/Distributed-File-System-Using-Socket-Programming"
   },
@@ -113,23 +113,27 @@ const ProjectCard = ({ project }) => {
       }}
     >
       <div className="flex flex-col h-full">
-        {/* Title */}
-        <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
-
-        {/* Project details below title */}
-        <div className="space-y-1 mb-4">
-          <div className="text-sm text-gray-700">{project.duration}</div>
-          <div className="text-sm text-gray-700">{project.organization}</div>
-          <div className="flex items-center text-sm text-gray-700">
-            <FaMapMarkerAlt className="mr-1 text-xs" />
-            <span>{project.location}</span>
+        {/* Title and Metadata Section */}
+        <div className="mb-4" style={{ minHeight: "120px" }}> {/* Fixed height for title and metadata */}
+          <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
+          <div className="space-y-1">
+            <div className="text-sm text-gray-700">{project.duration}</div>
+            <div className="text-sm text-gray-700">{project.organization}</div>
+            <div className="flex items-center text-sm text-gray-700">
+              <FaMapMarkerAlt className="mr-1 text-xs" />
+              <span>{project.location}</span>
+            </div>
           </div>
         </div>
 
-        {/* Description with enhanced styling */}
-        <p className="text-md text-gray-700 bg-white bg-opacity-40 rounded-lg p-3 shadow-sm leading-relaxed mb-auto">{project.description}</p>
+        {/* Description Section */}
+        <div className="flex-1 mb-4"> {/* Flex-1 ensures the description takes up remaining space */}
+          <p className="text-md text-gray-700 bg-white bg-opacity-70 rounded-lg p-4 shadow-sm leading-relaxed">
+            {project.description}
+          </p>
+        </div>
 
-        {/* Technologies - at bottom with slightly larger size */}
+        {/* Technologies Section */}
         <div className="mt-4 mb-8">
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
@@ -143,7 +147,7 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
 
-        {/* GitHub icon in bottom-right corner */}
+        {/* GitHub Icon */}
         <a
           href={project.githubLink}
           target="_blank"

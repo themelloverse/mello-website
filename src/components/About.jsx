@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import GokuImage from "../assets/Goku.png";
+import AJMImage from "../assets/ajmpic.jpeg";
 
 const About = () => {
   return (
@@ -37,7 +37,7 @@ const About = () => {
           >
             <div className="w-80 h-80 rounded-full border-8 border-black flex items-center justify-center p-2 shadow-lg">
               <img
-                src={GokuImage}
+                src={AJMImage}
                 alt="Profile"
                 className="w-full h-full rounded-full object-cover"
               />

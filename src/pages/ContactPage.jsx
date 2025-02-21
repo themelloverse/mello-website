@@ -12,9 +12,10 @@ const ContactPage = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const contactInfo = [
-    { icon: FaEnvelope, label: "Email", value: "hello@studio.co" },
-    { icon: FaPhoneAlt, label: "Phone", value: "+1 234 567 890" },
-    { icon: FaMapMarkerAlt, label: "Address", value: "123 Design Street, NY" },
+    { icon: FaEnvelope, label: "Personal Email", value: "anishjm.1998@gmail.com" },
+    { icon: FaEnvelope, label: "Work Email", value: "moothed@uwindsor.ca" },
+    { icon: FaPhoneAlt, label: "Phone", value: "+1 226 975 9973" },
+    { icon: FaMapMarkerAlt, label: "Address", value: "Windsor, Ontario, Canada" },
   ];
 
   const handleSubmit = async (e) => {
@@ -41,80 +42,64 @@ const ContactPage = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form Section */}
-          <div className="bg-[#D9B6AC] border-2 border-[#9E6C65] p-10 rounded-xl shadow-lg text-black flex flex-col justify-between h-full">
-            <h3 className="text-3xl font-semibold mb-6 text-center">Send Me a Message</h3>
+          <div className="w-full">
+            <div className="bg-[#D9B6AC] border-2 border-[#9E6C65] p-8 rounded-xl shadow-lg text-black">
+              <h3 className="text-3xl font-semibold mb-6 text-center">Send Me a Message</h3>
 
-            {message && (
-              <div className="bg-[#F0D9D5] p-4 text-black rounded-md mb-4">
-                {message}
-              </div>
-            )}
+              {message && (
+                <div className="bg-[#F0D9D5] p-4 text-black rounded-md mb-4 text-center">
+                  {message}
+                </div>
+              )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="relative">
+              <form onSubmit={handleSubmit} className="grid gap-y-6">
                 <input
                   type="text"
                   name="name"
                   placeholder="Full Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 transition-all ease-in-out duration-200 ${
-                    focusedField === "name" ? "border-black" : ""
-                  }`}
-                  onFocus={() => setFocusedField("name")}
-                  onBlur={() => setFocusedField(null)}
+                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 transition-all duration-200`}
                 />
-              </div>
 
-              <div className="relative">
                 <input
                   type="email"
                   name="email"
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 transition-all ease-in-out duration-200 ${
-                    focusedField === "email" ? "border-black" : ""
-                  }`}
-                  onFocus={() => setFocusedField("email")}
-                  onBlur={() => setFocusedField(null)}
+                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 transition-all duration-200`}
                 />
-              </div>
 
-              <div className="relative">
                 <textarea
                   name="message"
                   placeholder="Your Message"
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 resize-none transition-all ease-in-out duration-200 ${
-                    focusedField === "message" ? "border-black" : ""
-                  }`}
-                  onFocus={() => setFocusedField("message")}
-                  onBlur={() => setFocusedField(null)}
+                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 resize-none transition-all duration-200`}
                 />
-              </div>
 
-              <motion.button
-                type="submit"
-                className="w-full bg-[#660000] text-white py-3 font-medium tracking-wider rounded-lg hover:bg-[#9A5A66] transition duration-300 shadow-md flex justify-center items-center"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="mr-2 animate-spin h-5 w-5" />
-                    Sending...
-                  </>
-                ) : (
-                  "Send Message"
-                )}
-              </motion.button>
-            </form>
+                <motion.button
+                  type="submit"
+                  className="w-full bg-[#660000] text-white py-3 font-medium tracking-wider rounded-lg hover:bg-[#9A5A66] transition duration-300 shadow-md flex justify-center items-center"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 animate-spin h-5 w-5" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
+                </motion.button>
+              </form>
+            </div>
           </div>
 
           {/* Contact Information Section */}
-          <div className="bg-[#D9B6AC] border-2 border-[#9E6C65] p-10 rounded-xl shadow-lg text-black flex flex-col justify-between h-full">
+          <div className="bg-[#D9B6AC] border-2 border-[#9E6C65] p-8 rounded-xl shadow-lg text-black flex flex-col justify-between h-full">
             <h3 className="text-3xl font-semibold mb-8 text-center">Contact Information</h3>
 
             <div className="space-y-6">

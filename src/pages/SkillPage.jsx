@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaChartLine } from 'react-icons/fa';
 import {
   FaReact,
   FaNodeJs,
@@ -34,9 +35,9 @@ const skillCategories = [
     skills: [
       { icon: FaCode, name: "C / C++", level: "Advanced" },
       { icon: FaJava, name: "Java", level: "Advanced" },
-      { icon: FaPython, name: "Python", level: "Expert" },
-      { icon: FaFileCode, name: "JavaScript", level: "Expert" },
-      { icon: FaCode, name: "TypeScript", level: "Advanced" },
+      { icon: FaPython, name: "Python", level: "Advanced" },
+      { icon: FaFileCode, name: "JavaScript", level: "Advanced" },
+      { icon: FaCode, name: "TypeScript", level: "Novice" },
       { icon: FaTerminal, name: "Shell / Bash", level: "Intermediate" },
     ],
   },
@@ -45,9 +46,9 @@ const skillCategories = [
     color: "#831843",
     description: "Database management systems I use",
     skills: [
-      { icon: FaDatabase, name: "PostgreSQL", level: "Expert" },
+      { icon: FaDatabase, name: "PostgreSQL", level: "Intermediate" },
       { icon: FaDatabase, name: "MySQL", level: "Advanced" },
-      { icon: FaDatabase, name: "MongoDB", level: "Advanced" },
+      { icon: FaDatabase, name: "MongoDB", level: "Intermediate" },
     ],
   },
   {
@@ -55,12 +56,12 @@ const skillCategories = [
     color: "#312E81",
     description: "Tools & frameworks for building UIs",
     skills: [
-      { icon: FaHtml5, name: "HTML5", level: "Expert" },
-      { icon: FaCss3Alt, name: "CSS3", level: "Expert" },
-      { icon: FaReact, name: "React", level: "Expert" },
-      { icon: FaReact, name: "React Native", level: "Advanced" },
+      { icon: FaHtml5, name: "HTML5", level: "Advanced" },
+      { icon: FaCss3Alt, name: "CSS3", level: "Advanced" },
+      { icon: FaReact, name: "React", level: "Advanced" },
+      { icon: FaReact, name: "React Native", level: "Novice" },
       { icon: FaCss3Alt, name: "Tailwind CSS", level: "Advanced" },
-      { icon: FaCode, name: "Vite", level: "Advanced" },
+      { icon: FaCode, name: "Vite", level: "Intermediate" },
     ],
   },
   {
@@ -68,9 +69,9 @@ const skillCategories = [
     color: "#0F766E",
     description: "Server-side technologies and APIs",
     skills: [
-      { icon: FaNodeJs, name: "Node.js", level: "Expert" },
-      { icon: FaServer, name: "Express.js", level: "Expert" },
-      { icon: FaServer, name: "NestJS", level: "Advanced" },
+      { icon: FaNodeJs, name: "Node.js", level: "Advanced" },
+      { icon: FaServer, name: "Express.js", level: "Advanced" },
+      { icon: FaServer, name: "NestJS", level: "Novice" },
       { icon: FaPython, name: "Django", level: "Advanced" },
       { icon: FaPython, name: "Flask", level: "Intermediate" },
     ],
@@ -80,12 +81,12 @@ const skillCategories = [
     color: "#0369A1",
     description: "Cloud platforms and DevOps tools",
     skills: [
-      { icon: FaAws, name: "AWS", level: "Advanced" },
+      { icon: FaAws, name: "AWS", level: "Novice" },
       { icon: FaCloud, name: "Google Maps API", level: "Intermediate" },
-      { icon: FaDocker, name: "Docker", level: "Advanced" },
-      { icon: FaGithub, name: "GitHub", level: "Expert" },
-      { icon: FaTools, name: "Prometheus", level: "Intermediate" },
-      { icon: FaCogs, name: "Grafana", level: "Intermediate" },
+      { icon: FaDocker, name: "Docker", level: "Intermediate" },
+      { icon: FaGithub, name: "GitHub", level: "Advanced" },
+      { icon: FaTools, name: "Prometheus", level: "Novice" },
+      { icon: FaCogs, name: "Grafana", level: "Novice" },
     ],
   },
   {
@@ -93,10 +94,11 @@ const skillCategories = [
     color: "#A21CAF",
     description: "Data processing and visualization tools",
     skills: [
-      { icon: FaLaptopCode, name: "Jupyter Notebook", level: "Advanced" },
+      { icon: FaLaptopCode, name: "Jupyter Notebook", level: "Intermediate" },
       { icon: FaMicrosoft, name: "MS Excel", level: "Advanced" },
       { icon: FaMicrosoft, name: "Power BI", level: "Advanced" },
-      { icon: FaCogs, name: "Power Automate", level: "Intermediate" },
+      { icon: FaCogs, name: "Power Automate", level: "Novice" },
+      { icon: FaChartLine, name: "Tableau", level: "Intermediate"}
     ],
   },
   {
@@ -104,13 +106,13 @@ const skillCategories = [
     color: "#BE185D",
     description: "Software tools for development workflow",
     skills: [
-      { icon: FaCode, name: "VSCode", level: "Expert" },
-      { icon: FaFigma, name: "Figma", level: "Advanced" },
+      { icon: FaCode, name: "VSCode", level: "Advanced" },
+      { icon: FaFigma, name: "Figma", level: "Intermediate" },
       { icon: FaTools, name: "Selenium", level: "Intermediate" },
       { icon: FaTools, name: "Postman", level: "Intermediate" },
-      { icon: FaTools, name: "Insomnia", level: "Intermediate" },
+      { icon: FaTools, name: "Insomnia", level: "Novice" },
       { icon: FaFileCode, name: "Markdown", level: "Intermediate" },
-      { icon: FaServer, name: "Celery", level: "Intermediate" },
+      { icon: FaServer, name: "Celery", level: "Novice" },
     ],
   },
   {
@@ -118,9 +120,9 @@ const skillCategories = [
     color: "#B45309",
     description: "Tools for project tracking and communication",
     skills: [
-      { icon: FaJira, name: "Jira", level: "Expert" },
+      { icon: FaJira, name: "Jira", level: "Advanced" },
       { icon: FaTasks, name: "ServiceNow", level: "Advanced" },
-      { icon: FaCogs, name: "Slack", level: "Expert" },
+      { icon: FaCogs, name: "Slack", level: "Novice" },
     ],
   },
   {
@@ -128,7 +130,7 @@ const skillCategories = [
     color: "#374151",
     description: "Operating systems I work with",
     skills: [
-      { icon: FaWindows, name: "Windows", level: "Expert" },
+      { icon: FaWindows, name: "Windows", level: "Advanced" },
       { icon: FaLinux, name: "Unix/Linux", level: "Advanced" },
     ],
   },
@@ -189,7 +191,7 @@ const SkillPage = () => (
   <div className="min-h-screen py-20 bg-[#E7E2D5]"> {/* Lighter, aesthetic background */}
     <div className="max-w-7xl mx-auto px-6">
       <h1 className="text-6xl font-extrabold text-gray-900 text-center mb-16">
-        Technical Expertise
+        Technical Advancedise
       </h1>
 
       {skillCategories.map((category) => (
