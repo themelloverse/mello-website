@@ -60,7 +60,7 @@ const education = [
     borderColor: "border-teal-400",
   },
   {
-    university: "St. James' School (Kolkata)",
+    university: "St. James' School Kolkata",
     degree: "ISC, Computer Science",
     duration: "2002 - 2016",
     grade: "Grade: ICSE - 81%, ISC - 82%",
