@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaCode, FaDownload, FaLinkedin, FaGithub, FaWordpress, FaEnvelope } from 'react-icons/fa';
+import resume from '../assets/ajmresume.pdf';
 
 // Import additional react-icons for decorative elements
 import { GiWoodBeam, GiFeather, GiPaperBagFolded } from 'react-icons/gi';
 
 const Hero = () => {
   const socialLinks = [
-    { icon: FaLinkedin, url: 'https://linkedin.com' },
-    { icon: FaGithub, url: 'https://github.com' },
-    { icon: FaWordpress, url: 'https://yourwordpressblog.com' },
+    { icon: FaLinkedin, url: 'https://www.linkedin.com/in/anishjohnm19/' },
+    { icon: FaGithub, url: 'https://github.com/anishjm1998' },
+    { icon: FaWordpress, url: 'https://jacobeanforlife.wordpress.com/' },
   ];
 
   return (
@@ -71,11 +72,11 @@ const Hero = () => {
           </Link>
 
           <a
-            href="/resume.pdf"
-            download
+            href={resume} // Use the imported file
+            download="Anish_John_Moothedam_Resume.pdf" // Optional: Specify the downloaded file name
             className="inline-flex items-center gap-2 px-8 py-4 text-[#F5F3EF] border-2 border-[#F5F3EF] 
-                      rounded-lg bg-transparent font-semibold hover:bg-[#F5F3EF] hover:text-[#4B3B2F] 
-                      transition-all duration-300 shadow-lg"
+             rounded-lg bg-transparent font-semibold hover:bg-[#F5F3EF] hover:text-[#4B3B2F] 
+             transition-all duration-300 shadow-lg"
           >
             <FaDownload />
             Download CV

@@ -15,8 +15,10 @@ const Navbar = () => {
     { to: '/contact', label: 'Contact', icon: FaEnvelope },
   ];
 
+  // Scroll to top when the route changes
   useEffect(() => {
-    setIsOpen(false);
+    window.scrollTo(0, 0); // Scroll to the top of the page
+    setIsOpen(false); // Close the mobile menu
   }, [location]);
 
   return (

@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaLinkedin, FaGithub, FaWordpress, FaEnvelope, FaPhone } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const location = useLocation();
+
   const socialLinks = [
-    { icon: FaLinkedin, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: FaGithub, url: 'https://github.com', label: 'GitHub' },
-    { icon: FaWordpress, url: 'https://yourwordpressblog.com', label: 'WordPress' },
+    { icon: FaLinkedin, url: 'https://www.linkedin.com/in/anishjohnm19/', label: 'LinkedIn' },
+    { icon: FaGithub, url: 'https://github.com/anishjm1998', label: 'GitHub' },
+    { icon: FaWordpress, url: 'https://jacobeanforlife.wordpress.com', label: 'WordPress' },
   ];
+
+  // Scroll to top when the route changes
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, [location]);
 
   return (
     <footer className="bg-gradient-to-b from-[#4B3B2F] to-[#3A2F26] text-gray-300 py-8 font-poppins">

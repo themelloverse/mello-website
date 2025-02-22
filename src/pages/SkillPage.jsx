@@ -188,10 +188,10 @@ const CategorySection = ({ category, color, skills }) => {
 };
 
 const SkillPage = () => (
-  <div className="min-h-screen py-20 bg-[#E7E2D5]"> {/* Lighter, aesthetic background */}
+  <div className="min-h-screen py-20 bg-[#E7E2D5]"> 
     <div className="max-w-7xl mx-auto px-6">
       <h1 className="text-6xl font-extrabold text-gray-900 text-center mb-16">
-        Technical Advancedise
+        Technical Expertise
       </h1>
 
       {skillCategories.map((category) => (

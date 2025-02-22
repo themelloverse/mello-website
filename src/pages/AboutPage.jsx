@@ -60,7 +60,7 @@ const education = [
     borderColor: "border-teal-400",
   },
   {
-    university: "St. James' School Kolkata",
+    university: "St. James' School (Kolkata)",
     degree: "ISC, Computer Science",
     duration: "2002 - 2016",
     grade: "Grade: ICSE - 81%, ISC - 82%",
@@ -196,9 +196,9 @@ const AboutPage = () => {
 
             <div className="flex space-x-6 justify-center">
               {[
-                { icon: <FaLinkedin />, href: "https://linkedin.com" },
-                { icon: <FaGithub />, href: "https://github.com" },
-                { icon: <FaWordpress />, href: "https://wordpress.com" }
+                { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/anishjohnm19/" },
+                { icon: <FaGithub />, href: "https://github.com/anishjm1998" },
+                { icon: <FaWordpress />, href: "https://jacobeanforlife.wordpress.com/" }
               ].map((social, i) => (
                 <a key={i} href={social.href} target="_blank" rel="noopener noreferrer"
                   className="text-black text-3xl hover:scale-110 transition-all hover:text-gray-600">

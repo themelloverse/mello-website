@@ -65,12 +65,18 @@ const About = () => {
             </p>
 
             {/* Animated Button (Matching Contact Page Style) */}
-            <motion.button
-              className="w-full bg-[#8B6F47] text-white font-bold font-poppins rounded-lg py-3 hover:bg-[#B99F82] transition duration-300 shadow-md mt-5"
+            <motion.div
               whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="w-full mt-5"
             >
-              <Link to="/about">Learn More</Link>
-            </motion.button>
+              <Link
+                to="/about"
+                className="block w-full bg-[#8B6F47] text-white font-bold font-poppins rounded-lg py-3 hover:bg-[#B99F82] transition duration-300 shadow-md text-center"
+              >
+                Learn More
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>
