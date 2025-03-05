@@ -7,7 +7,7 @@ const projects = [
     duration: "Jan 2025 - Feb 2025",
     organization: "Personal Project",
     location: "Windsor, Ontario",
-    description: "A web-based Wordle solver that provides suggestions based on previous guesses and feedback.",
+    description: "A web-based Wordle solver that provides intelligent suggestions based on previous guesses and feedback.",
     bgColor: "bg-teal-100",  
     borderColor: "border-teal-500",  
     technologies: ["React", "TypeScript", "JavaScript", "TailwindCSS"],
@@ -18,7 +18,7 @@ const projects = [
     duration: "Sep 2024 - Dec 2024",
     organization: "Rocket Innovation Studio",
     location: "Windsor, Ontario",
-    description: "A collaborative platform with secure authentication and NLP-powered categorization.",
+    description: "A secure idea submission and management platform with authentication, NLP-powered tagging, and an intuitive user interface.",
     bgColor: "bg-blue-100",
     borderColor: "border-blue-600",
     technologies: ["React", "Node.js", "PostgreSQL", "Python", "Docker", "Figma"],
@@ -29,7 +29,7 @@ const projects = [
     duration: "Sep 2024 - Dec 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
-    description: "A donation platform connecting NGOs with surplus donors using geolocation filtering.",
+    description: "A donation platform connecting NGOs with surplus donors, featuring geolocation filtering, real-time updates, and scalable microservices architecture.",
     bgColor: "bg-pink-100",
     borderColor: "border-pink-600",
     technologies: ["Django", "React", "PostgreSQL", "Docker", "Google Maps"],
@@ -40,7 +40,7 @@ const projects = [
     duration: "Jun 2024 - Aug 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
-    description: "An AI-powered solution predicting employee turnover with 97% accuracy.",
+    description: "An AI-powered solution predicting employee turnover with 97% accuracy, leveraging ensemble models and advanced data preprocessing techniques.",
     bgColor: "bg-orange-100",
     borderColor: "border-orange-600",
     technologies: ["Python", "Jupyter", "Tableau"],
@@ -51,7 +51,7 @@ const projects = [
     duration: "Jun 2024 - Jul 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
-    description: "Built a file system for file storage and retrieval across multiple servers using socket programming in C.",
+    description: "A distributed file system enabling file storage and retrieval across multiple servers, built using socket programming in C for scalability and efficiency.",
     bgColor: "bg-green-100",
     borderColor: "border-green-600",
     technologies: ["C", "Linux", "Socket Programming"],
@@ -62,44 +62,40 @@ const projects = [
     duration: "Jan 2024 - Apr 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
-    description: "Developed ML models for crop health monitoring and real-time alert systems.",
+    description: "A crop health monitoring system with real-time alerts, text-to-speech functionality, and APIs for tracking and analysis.",
     bgColor: "bg-yellow-100",
     borderColor: "border-yellow-600",
     technologies: ["Python", "Flask", "JavaScript"],
-    githubLink: "https://github.com/anishjm1998/CropWatch"
   },
   {
     title: "Flight Price Analysis System (JetJourney)",
     duration: "Jan 2024 - Apr 2024",
     organization: "University of Windsor",
     location: "Windsor, Ontario",
-    description: "Built a system to scrape flight prices and analyze trends using Java.",
+    description: "A system for scraping and analyzing flight prices, featuring interactive dashboards and trend visualization for better decision-making.",
     bgColor: "bg-indigo-100",
     borderColor: "border-indigo-600",
     technologies: ["Java", "Selenium", "JSoup"],
-    githubLink: "https://github.com/anishjm1998/JetJourney"
   },
   {
     title: "Food Calorie Estimation using Deep Learning (CalorifyMe)",
     duration: "Mar 2020 - May 2020",
     organization: "Karunya University",
     location: "Coimbatore, India",
-    description: "Developed a deep learning model to estimate food calories from images using MobileNetV2.",
+    description: "A deep learning-based Android app for real-time calorie estimation from food images, leveraging MobileNetV2 and TensorFlow Lite.",
     bgColor: "bg-red-100",
     borderColor: "border-red-600",
     technologies: ["TensorFlow", "Android Studio", "Java"],
-    githubLink: "https://github.com/anishjm1998/CalorifyMe"
   },
   {
     title: "Movie Recommendation System (MovieGenie)",
     duration: "Oct 2019 - Nov 2019",
     organization: "Karunya University",
     location: "Coimbatore, India",
-    description: "Built a web scraper and trained a Naïve Bayes model to recommend movies based on sentiment analysis.",
+    description: "A sentiment-based movie recommendation system, integrating a Naïve Bayes classifier with an Android app for personalized suggestions.",
     bgColor: "bg-purple-100",
     borderColor: "border-purple-600",
     technologies: ["Beautiful Soup", "Android Studio", "Python"],
-    githubLink: "https://github.com/anishjm1998/MovieGenie"
   }
 ];
 
@@ -147,15 +143,17 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
 
-        {/* GitHub Icon */}
-        <a
-          href={project.githubLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute bottom-4 right-4 p-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition"
-        >
-          <FaGithub className="text-base" />
-        </a>
+        {/* GitHub Icon - Conditionally Rendered */}
+        {project.githubLink && (
+          <a
+            href={project.githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-4 p-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition"
+          >
+            <FaGithub className="text-base" />
+          </a>
+        )}
       </div>
     </div>
   );

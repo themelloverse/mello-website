@@ -6,36 +6,37 @@ const scrollToTop = () => {
   window.scrollTo(0, 0);
 };
 
-const blogPosts = [
+// Ensure these are in lowercase as per your updated filenames
+const featuredBlogs = [
   {
-    id: 1,
-    title: "The Midnight Traveler",
-    excerpt: "A mysterious journey through time and space...",
-    date: "2024-01-15",
-    readTime: "5 min read",
+    id: "the-egg",  // Ensure this matches the lowercase file name (theegg.js)
+    title: "The Egg",
+    excerpt: "A thought-provoking story about existence and rebirth...",
+    date: "2024-01-05",
+    readTime: "4 min read",
     category: "Science Fiction",
-    bgColor: "bg-indigo-100",
-    borderColor: "border-indigo-600",
+    bgColor: "bg-yellow-100",
+    borderColor: "border-yellow-600",
   },
   {
-    id: 2,
-    title: "Echoes of Silence",
-    excerpt: "A haunting tale of memory and loss...",
-    date: "2024-01-22",
-    readTime: "7 min read",
-    category: "Dystopian",
-    bgColor: "bg-purple-100",
-    borderColor: "border-purple-600",
+    id: "durgapuja",  // Ensure this matches the lowercase file name (durgapuja.js)
+    title: "Durga Puja",
+    excerpt: "A personal reflection on tradition, devotion, and celebration...",
+    date: "2023-10-22",
+    readTime: "5 min read",
+    category: "Personal Diary",
+    bgColor: "bg-red-100",
+    borderColor: "border-red-600",
   },
   {
-    id: 3,
-    title: "Whispers in the Wind",
-    excerpt: "Exploring the hidden voices of the past...",
-    date: "2024-02-10",
+    id: "rainbows",  // Ensure this matches the lowercase file name (rainbows.js)
+    title: "Seeking Rainbows",
+    excerpt: "Finding hope in life's challenges and chasing dreams...",
+    date: "2024-02-15",
     readTime: "6 min read",
-    category: "Mystery",
-    bgColor: "bg-green-100",
-    borderColor: "border-green-600",
+    category: "Life",
+    bgColor: "bg-blue-100",
+    borderColor: "border-blue-600",
   },
 ];
 
@@ -59,20 +60,20 @@ const Blog = () => {
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
-            My Blog Posts
+            Featured Stories
           </h2>
         </div>
 
-        {/* Blog Cards */}
+        {/* Featured Blog Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
-          {blogPosts.map((post) => (
+          {featuredBlogs.map((post) => (
             <motion.div
               key={post.id}
               className={`rounded-xl p-8 border ${post.borderColor} 
                           shadow-xl hover:shadow-2xl transition-all duration-300 
                           ${post.bgColor} cursor-pointer flex flex-col justify-between`}
               whileHover={{ scale: 1.02 }}
-              onClick={() => navigate("/blog")}
+              onClick={() => navigate(`/blog/${post.id}`)} // Ensure this points to the correct route
             >
               {/* Meta Info */}
               <div className="text-sm text-gray-700 flex items-center gap-2 mb-2">

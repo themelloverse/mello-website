@@ -1,20 +1,83 @@
 import React, { useState, useEffect } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";  // Import framer-motion for animations
+
+import durgapuja from "./stories/durgapuja"; 
+import echo from "./stories/echo";
+import marauder from "./stories/marauder";
+import rainbows from "./stories/rainbows";
+import theEgg from "./stories/theEgg";
+import timetravelparadox from "./stories/timeTravelParadox";
 
 const originalBlogPosts = [
-  { id: 1, title: "The Midnight Traveler", category: "Science Fiction", tags: ["Time Travel", "Adventure"], bgColor: "bg-blue-100", borderColor: "border-blue-500" },
-  { id: 2, title: "Echoes of Silence", category: "Dystopian", tags: ["Psychological", "Thriller"], bgColor: "bg-pink-100", borderColor: "border-pink-500" },
-  { id: 3, title: "The Dreamcatcher's Secret", category: "Fantasy", tags: ["Magic", "Mystery"], bgColor: "bg-green-100", borderColor: "border-green-500" },
-  { id: 4, title: "The Lost City of Avaris", category: "Fantasy", tags: ["Mythology", "Ancient Legends"], bgColor: "bg-cyan-100", borderColor: "border-cyan-500" },
-  { id: 5, title: "A New Dawn in Andromeda", category: "Science Fiction", tags: ["Space Exploration", "Aliens"], bgColor: "bg-orange-100", borderColor: "border-orange-500" },
-  { id: 6, title: "The Last Echo", category: "Dystopian", tags: ["Survival", "Post-Apocalypse"], bgColor: "bg-gray-200", borderColor: "border-gray-500" },
+  { 
+    id: "durgapuja", 
+    title: "Durga Puja", 
+    category: "Personal Diary", 
+    component: durgapuja, 
+    bgColor: "bg-teal-100", 
+    borderColor: "border-teal-500",
+    description: "A nostalgic journey through the magic of Durga Puja in Kolkata, filled with warmth, chaos, and lifelong memories.",
+    tags: ["Childhood", "Nostalgia"]
+  },
+  { 
+    id: "echo", 
+    title: "Echo of Existence", 
+    category: "Life", 
+    component: echo, 
+    bgColor: "bg-blue-100", 
+    borderColor: "border-blue-600",
+    description: "Reflections on life, relationships, and the importance of staying true to oneself amidst the chaos of the world.",
+    tags: ["Motivation", "Inspiration"]
+  },
+  { 
+    id: "marauder", 
+    title: "The New Marauder", 
+    category: "Fan Fiction", 
+    component: marauder, 
+    bgColor: "bg-pink-100", 
+    borderColor: "border-pink-600",
+    description: "A heartwarming Harry Potter fan fiction about the Marauders reuniting in the afterlife.",
+    tags: ["Harry Potter", "Marauders"]
+  },
+  { 
+    id: "rainbows", 
+    title: "Seeking Rainbows", 
+    category: "Life", 
+    component: rainbows, 
+    bgColor: "bg-orange-100", 
+    borderColor: "border-orange-600",
+    description: "A motivational piece about finding hope and beauty in life's storms and seeking your own rainbow.",
+    tags: ["Motivation", "Inspiration"]
+  },
+  { 
+    id: "the-egg", 
+    title: "The Egg", 
+    category: "Science Fiction", 
+    component: theEgg, 
+    bgColor: "bg-green-100", 
+    borderColor: "border-green-600",
+    description: "A mind-bending story about reincarnation, the meaning of life, and the interconnectedness of all beings.",
+    tags: ["Mind-blowing", "Spiritual"]
+  },
+  { 
+    id: "time-travel-paradox", 
+    title: "A Time Travel Paradox", 
+    category: "Science Fiction", 
+    component: timetravelparadox, 
+    bgColor: "bg-indigo-100", 
+    borderColor: "border-indigo-600",
+    description: "A fascinating tale of time travel, paradoxes, and the complexities of human existence.",
+    tags: ["Time Travel", "Adventure"]
+  },
 ];
 
-const categories = ["All", "Science Fiction", "Fantasy", "Dystopian"];
+const categories = ["All", "Science Fiction", "Personal Diary", "Life", "Fan Fiction"];
 
 const BlogPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [filter, setFilter] = useState(localStorage.getItem("selectedCategory") || "All");
   const [filteredPosts, setFilteredPosts] = useState(originalBlogPosts);
 
@@ -27,10 +90,13 @@ const BlogPage = () => {
     }
   }, [filter]);
 
+  const handleCardClick = (id) => {
+    navigate(`/blog/${id}`);
+  };
+
   return (
     <div className="min-h-screen bg-[#E6E6FA] py-20">
       <div className="max-w-7xl mx-auto px-6">
-        
         {/* Page Heading */}
         <div className="text-center mb-16">
           <h1 className="text-6xl font-extrabold text-gray-900">Featured Stories</h1>
@@ -54,24 +120,42 @@ const BlogPage = () => {
         </div>
 
         {/* Blog Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {filteredPosts.map((post) => (
-            <a
+            <motion.div
               key={post.id}
-              href={`/blog/${post.id}`}
-              className={`rounded-3xl p-6 shadow-lg border-2 ${post.borderColor} ${post.bgColor} text-gray-900 transition-transform transform hover:-translate-y-2 hover:shadow-2xl`}
-              style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)", minHeight: "260px" }}
+              className={`relative rounded-2xl p-6 shadow-lg border-2 ${post.borderColor} ${post.bgColor} text-gray-900`}
+              style={{
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+                minHeight: "280px", // Smaller card size
+              }}
+              whileHover={{ scale: 1.02 }}
+              onClick={() => handleCardClick(post.id)}
             >
-              <h3 className="text-2xl font-bold mb-2">{post.title}</h3>
-              <p className="text-sm text-gray-700 mb-3">{post.category}</p>
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 rounded-full bg-white bg-opacity-80 text-gray-700 border border-gray-400 text-sm">
-                    {tag}
-                  </span>
-                ))}
+              <div className="flex flex-col h-full">
+                {/* Title and Tags Section */}
+                <div className="mb-4">
+                  <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags && post.tags.map((tag, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center px-3 py-1.5 bg-white bg-opacity-80 rounded-full border border-gray-400 shadow-sm hover:scale-105 transition-all duration-300"
+                      >
+                        <span className="text-sm font-medium">{tag}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Description Section */}
+                <div className="flex-1 mb-4">
+                  <p className="text-md text-gray-700 leading-relaxed">
+                    {post.description}
+                  </p>
+                </div>
               </div>
-            </a>
+            </motion.div>
           ))}
         </div>
 

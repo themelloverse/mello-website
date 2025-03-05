@@ -10,9 +10,8 @@ const experiences = [
     duration: "January 2025 - Present",
     location: "Remote, Toronto",
     details: [
-      "Developing scalable backend solutions using Node.js and Express",
-      "Optimizing API performance and implementing real-time features",
-      "Collaborating with senior developers on system architecture"
+      "Tools Used: TypeScript, NestJS, MongoDB, React Native, AWS, WebRTC.",
+      "Currently pursuing a 4-month internship focused on backend development, API optimization, and real-time communication technologies.",
     ],
     bgColor: "bg-blue-50",
     borderColor: "border-blue-400",
@@ -23,9 +22,11 @@ const experiences = [
     duration: "January 2021 - August 2023",
     location: "Kolkata, India",
     details: [
-      "Led a team of 4 developers for SAP security implementations",
-      "Reduced system access management time by 40% through automation",
-      "Received Excellence Award for process optimization initiatives"
+      "Managed system monitoring, reporting, and security administration for 100+ SAP systems, ensuring optimal performance, reliability, and secure user access control.",
+      "Automated workflows using SAP GUI scripting, reducing manual effort by 45% and increasing operational efficiency.",
+      "Handled user migration for 100+ ERP systems, ensuring smooth transitions and compliance with security requirements.",
+      "Performed unit testing, troubleshooting, and data analysis on SAP systems, resolving 95% of issues within 24 hours using HP ALM, ServiceNow, and MS Excel.",
+      "Collaborated with auditors to ensure Segregation of Duties (SOD) compliance, leading a team of 2, assigning tasks, and delivering updates in daily meetings.",
     ],
     bgColor: "bg-blue-50",
     borderColor: "border-blue-400",
@@ -188,9 +189,8 @@ const AboutPage = () => {
             </div>
 
             <div className="bg-amber-50 p-8 rounded-2xl shadow-md border-4 border-amber-300 hover:shadow-xl transition-all">
-              <p className="text-xl leading-relaxed text-black font-semibold">
-                Full-stack developer passionate about crafting elegant, scalable applications.
-                Exploring AI & cloud architecture while pursuing my Master's degree.
+              <p className="text-lg leading-relaxed text-black font-semibold">
+                Full-stack Developer currently pursuing a Master’s in Applied Computing at the University of Windsor, graduating in May 2025, and looking for full-time opportunities thereafter.
               </p>
             </div>
 
