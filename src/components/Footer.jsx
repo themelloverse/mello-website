@@ -48,7 +48,7 @@ const Footer = () => {
             {['Home', 'About', 'Skills', 'Projects', 'Blog', 'Contact'].map((item) => (
               <li key={item}>
                 <Link 
-                  to={`/${item.toLowerCase()}`}
+                  to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} // Fix for Home link
                   className="relative px-3 py-2 rounded-md transition duration-300 
                              hover:text-[#F5F3EF]/80 hover:bg-[#F5F3EF]/10"
                 >

@@ -52,17 +52,22 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-3xl font-semibold text-gray-800 font-poppins">My Journey</h3>
-            <p className="text-gray-700 leading-relaxed mt-3 font-poppins">
-              With 5+ years of experience, I specialize in full-stack development, cloud computing, 
-              and AI-driven solutions. My expertise lies in designing scalable, high-performance applications 
-              that enhance user experiences.
-            </p>
-            <p className="text-gray-700 leading-relaxed mt-3 font-poppins">
-              From crafting intuitive UI/UX to building complex backend systems, I thrive on solving 
-              challenges and pushing technological boundaries. Whether it's machine learning models, 
-              progressive web apps, or automation tools, I bring innovative ideas to life.
-            </p>
+            <div className="mt-auto">
+              {/* My Journey Heading */}
+              <h3 className="text-2xl font-bold text-gray-900 font-poppins mb-6 text-center">
+                My Journey
+              </h3>
+
+              {/* Description Paragraphs */}
+              <p className="text-gray-700 leading-relaxed font-semibold mb-4">
+                Hi, I'm Anish John Moothedam, a Master of Applied Computing student at the University of Windsor, graduating in May 2025.
+                With 2.5 years of experience at Accenture, I enjoy building scalable applications and solving complex problems.
+              </p>
+              <p className="text-gray-700 leading-relaxed font-semibold mb-4">
+                I'm always eager to learn, grow, and take on new challenges. Outside of tech, I love trivia, sports, chess, and exploring different cultures.
+                Feel free to connect!
+              </p>
+            </div>
 
             {/* Animated Button (Matching Contact Page Style) */}
             <motion.div

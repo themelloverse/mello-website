@@ -3,23 +3,10 @@ const durgapuja = {
   title: "Durga Puja",
   category: "Personal Diary",
   tags: ["Childhood", "Nostalgia"],
-  bgColor: "bg-teal-100",
-  borderColor: "border-teal-500",
+  bgColor: "bg-pink-100",
+  borderColor: "border-pink-600",
   content: `
-    <div class="p-8">
-      <!-- Go Back Button -->
-      <div class="mb-8">
-        <a
-          href="/blog"
-          class="inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition-all duration-300"
-        >
-          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-          </svg>
-          Go Back to Blog
-        </a>
-      </div>
-
+    <div class="p-8 ${"bg-pink-100"}"> <!-- Match bgColor -->
       <!-- Title Section -->
       <h2 class="text-4xl font-bold mb-6 text-gray-900">Durga Puja</h2>
       
@@ -54,10 +41,10 @@ const durgapuja = {
       <!-- Button Section -->
       <div class="text-center mt-12">
         <a
-          href="https://jacobeanforlife.wordpress.com/"
+          href="https://jacobeanforlife.wordpress.com/2023/11/01/durga-puja/"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center px-8 py-3 text-lg font-semibold text-white bg-teal-600 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
+          class="inline-flex items-center px-8 py-3 text-lg font-semibold text-white bg-pink-600 rounded-lg shadow-md hover:bg-pink-700 transition-all duration-300"
         >
           View on WordPress
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

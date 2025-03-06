@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaGithub, FaMapMarkerAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: "Wordle Solver",
+    title: "Daily Wordle Solver",
     duration: "Jan 2025 - Feb 2025",
     organization: "Personal Project",
     location: "Windsor, Ontario",
@@ -101,12 +102,14 @@ const projects = [
 
 const ProjectCard = ({ project }) => {
   return (
-    <div
-      className={`relative rounded-3xl p-8 shadow-lg border-2 ${project.borderColor} ${project.bgColor} text-gray-900`}
+    <motion.div
+      className={`relative rounded-3xl p-8 shadow-lg border-2 ${project.borderColor} ${project.bgColor} text-gray-900 cursor-pointer`}
       style={{
         boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
         minHeight: "400px",
       }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
     >
       <div className="flex flex-col h-full">
         {/* Title and Metadata Section */}
@@ -123,7 +126,7 @@ const ProjectCard = ({ project }) => {
         </div>
 
         {/* Description Section */}
-        <div className="flex-1 mb-4"> {/* Flex-1 ensures the description takes up remaining space */}
+        <div className="flex-1 mb-4">
           <p className="text-md text-gray-700 bg-white bg-opacity-70 rounded-lg p-4 shadow-sm leading-relaxed">
             {project.description}
           </p>
@@ -155,7 +158,7 @@ const ProjectCard = ({ project }) => {
           </a>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -163,7 +166,7 @@ const ProjectPage = () => {
   return (
     <div className="min-h-screen bg-[#E1F5FE] py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <h1 className="text-6xl font-extrabold text-gray-900 text-center mb-16">Featured Projects</h1>
+        <h1 className="text-6xl font-extrabold text-gray-900 text-center mb-16">Technical Projects</h1>
         <div className="grid md:grid-cols-3 gap-12">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />

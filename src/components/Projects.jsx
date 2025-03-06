@@ -9,12 +9,12 @@ const scrollToTop = () => {
 
 const projects = [
   {
-    title: "Idea Submission Platform",
-    github: "https://github.com/anishjm1998/mind-palace",
-    icon: <FaLaptopCode className="text-blue-500" />,
-    bgColor: "bg-blue-100",
-    borderColor: "border-blue-600",
-    queryParam: "idea-submission",
+    title: "Daily Wordle Solver",
+    github: "https://github.com/anishjm1998/wordle-solver",
+    icon: <FaLaptopCode className="text-teal-500" />,
+    bgColor: "bg-teal-100",
+    borderColor: "border-teal-500",
+    queryParam: "wordle-solver",
   },
   {
     title: "Surplus Resources Donation Platform",
@@ -25,12 +25,12 @@ const projects = [
     queryParam: "surplus-resources",
   },
   {
-    title: "Predictive Analysis of Employee Attrition",
-    github: "https://github.com/anishjm1998/EmployeeAttritionPrediction",
-    icon: <FaLaptopCode className="text-green-500" />,
-    bgColor: "bg-green-100",
-    borderColor: "border-green-600",
-    queryParam: "employee-attrition",
+    title: "Idea Collaboration Platform (Mind Palace)",
+    github: "https://github.com/anishjm1998/mind-palace",
+    icon: <FaLaptopCode className="text-blue-500" />,
+    bgColor: "bg-blue-100",
+    borderColor: "border-blue-600",
+    queryParam: "idea-submission",
   },
 ];
 
@@ -97,9 +97,9 @@ const Projects = () => {
           ))}
         </div>
 
-         {/* View All Projects Button */}
-         <div className="text-center mt-12">
-         <motion.button
+        {/* View All Projects Button */}
+        <div className="text-center mt-12">
+          <motion.button
             onClick={() => {
               scrollToTop();
               navigate("/projects"); // Fix navigation issue

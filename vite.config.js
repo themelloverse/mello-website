@@ -1,8 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: "/ajm-portfolio/", // Add this line
   plugins: [react()],
-   base: '/ajm-portfolio/'
-})
+});

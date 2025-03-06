@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
-    "framer-motion": "^12.4.1",
+    "framer-motion": "^12.4.10",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

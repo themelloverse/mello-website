@@ -73,7 +73,7 @@ const Skills = () => {
       >
         <div className="text-center max-w-3xl mx-auto mb-14">
           <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
-            Skills Overview
+            Technical Skills Overview
           </h2>
         </div>
 
