@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { FaLinkedin, FaGithub, FaChevronDown, FaChevronUp, FaBriefcase, FaGraduationCap, FaCode, FaFutbol, FaBookOpen, FaMusic, FaChessKing, FaMapMarkerAlt, FaGamepad, FaTrophy, FaLanguage, FaGlobe } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaChevronDown, FaChevronUp, FaBriefcase, FaGraduationCap, FaCode, FaFutbol, FaBookOpen, FaMusic, FaUtensils, FaMapMarkerAlt, FaGamepad, FaTrophy, FaLanguage, FaGlobe } from "react-icons/fa";
 import { FaWordpress } from "react-icons/fa";
+import { motion } from "framer-motion";
 import AJMImage from "../assets/ajmpic.jpeg";
+import AJMImage2 from "../assets/ajmpic2.png";
 
 const experiences = [
   {
@@ -40,9 +42,10 @@ const education = [
     duration: "January 2024 - April 2025",
     grade: "GPA: 8.36/10",
     details: [
-      "Specializing in Cloud Computing and Distributed Systems",
-      "Research focus on Microservices Architecture",
-      "Teaching Assistant for Advanced Algorithms course"
+      "Internship/Project I (COMP8967) - Project with Rocket Innovation Studio",
+      "Internship/Project II (COMP8977) - Internship with Semper8 International Ltd.",
+      "Atlassian Agile Project Management Professional Certificate (Atlassian)",
+      "Career Essentials in GitHub Professional Certificate (GitHub)"
     ],
     bgColor: "bg-teal-50",
     borderColor: "border-teal-400",
@@ -53,22 +56,27 @@ const education = [
     duration: "June 2016 - August 2020",
     grade: "GPA: 8.2/10",
     details: [
-      "Led the college's Coding Club and organized tech workshops",
-      "Published research paper on Machine Learning applications",
-      "Won Best Project Award for final year thesis"
+      "Member of Journalism Club",
+      "Member of ACE (The Association of Computer Engineers)",
+      "Content Writer for the University Magazine (Impressions)",
+      "University Cricket Team"
     ],
     bgColor: "bg-teal-50",
     borderColor: "border-teal-400",
   },
   {
     university: "St. James' School (Kolkata)",
-    degree: "ISC, Computer Science",
+    degree: "High School, Computer Science",
     duration: "2002 - 2016",
     grade: "Grade: ICSE - 81%, ISC - 82%",
     details: [
       "School Cricket Team Captain",
       "School Football Team",
-      "School Quiz Team"
+      "School Quiz Team",
+      "Content Writer for the School Magazine (Jacobean)",
+      "Member of Science Club",
+      "Member of Library Squad",
+      "Member of Safety Patrol Squad"
     ],
     bgColor: "bg-teal-50",
     borderColor: "border-teal-400",
@@ -79,82 +87,75 @@ const categories = [
   {
     name: "Sports",
     icon: <FaFutbol className="text-amber-600" />,
-    description: "Captain of university cricket team. Analyzing match strategies and mentoring new players.",
     bgColor: "bg-amber-50",
     borderColor: "border-amber-400",
     details: [
-      "Led team to regional championship",
-      "Organized weekly practice sessions",
-      "Developed new training techniques"
+      "Former Semi-Professional Cricketer.",
+      "Geeking about all kinds of sports and stats.",
+      "Sports Idol - Yuvraj Singh.",
     ]
   },
   {
     name: "Gaming",
     icon: <FaGamepad className="text-indigo-600" />,
-    description: "Exploring game development and competitive gaming. Passion for VR & AR technologies.",
     bgColor: "bg-indigo-50",
     borderColor: "border-indigo-400",
     details: [
-      "Created small indie games using Unity",
-      "Participated in game jams",
-      "Learning Unreal Engine for VR development"
+      "Self-proclaimed FIFA god.",
+      "Gaming from Dangerous Dave to Cyberpunk.",
+      "Challenge me on Chess.com - AJM_1998.",
     ]
   },
   {
     name: "Reading & Writing",
     icon: <FaBookOpen className="text-purple-600" />,
-    description: "From technical books to sci-fi novels. Passionate about writing and exploring system design patterns.",
     bgColor: "bg-purple-50",
     borderColor: "border-purple-400",
     details: [
-      "Published articles on Medium about system design",
-      "Maintain a weekly blog on tech trends",
-      "Book club member focusing on sci-fi literature"
+      "Follow my Blog - jacobeanforlife.wordpress.com",
+      "True Potterhead and a pure-blood Gryffindor.",
+      "Favourite Author - Stephen King.",
     ]
   },
   {
     name: "Music",
     icon: <FaMusic className="text-rose-600" />,
-    description: "Self-taught guitarist. Love composing and performing music for local events.",
     bgColor: "bg-rose-50",
     borderColor: "border-rose-400",
     details: [
-      "Performed at campus events",
-      "Learning music production with Logic Pro",
-      "Composed background music for student films"
+      "I can play the keyboard and sing in the shower.",
+      "Fave Song - Comfortably Numb by Pink Floyd.",
+      "Add me on Spotify - AJM_1998.",
     ]
   },
   {
-    name: "Chess",
-    icon: <FaChessKing className="text-blue-600" />,
-    description: "Chess enthusiast. Studying game theory and exploring advanced strategies.",
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-400",
+    name: "Foodie",
+    icon: <FaUtensils className="text-emerald-600" />,
+    bgColor: "bg-emerald-50",
+    borderColor: "border-emerald-400",
     details: [
-      "Regional tournament participant",
-      "Online rating of 1800+",
-      "Teaching chess to beginners on weekends"
+      "Amateur cook under Mom’s instructions.",
+      "Strict Biryani connoisseur.",
+      "Coffee addict, always experimenting."
     ]
   },
   {
     name: "Trivia Geek",
-    icon: <FaTrophy className="text-emerald-600" />,
-    description: "Trivia enthusiast. Competitions, quizzes, and fact-finding are my forte.",
-    bgColor: "bg-emerald-50",
-    borderColor: "border-emerald-400",
+    icon: <FaTrophy className="text-blue-600" />,
+    bgColor: "bg-blue-50",
+    borderColor: "border-blue-400",
     details: [
-      "Won university-wide trivia competition",
-      "Host monthly trivia nights",
-      "Specializing in science and tech history"
+      "Can be found on Sporcle and QuizUp.",
+      "Amazed by geography, astronomy, and dinosaurs.",
+      "National Spelling Bee Champion."
     ]
   },
 ];
 
 const AboutPage = () => {
-  // State for expanded cards using unique keys
+  const [isFlipped, setIsFlipped] = useState(false); // State for flip animation
   const [expandedExperienceKey, setExpandedExperienceKey] = useState(null);
   const [expandedEducationKey, setExpandedEducationKey] = useState(null);
-  const [expandedHobbyKey, setExpandedHobbyKey] = useState(null);
 
   // Generate unique keys for cards
   const getUniqueKey = (rowIndex, colIndex) => `${rowIndex}-${colIndex}`;
@@ -168,8 +169,9 @@ const AboutPage = () => {
     setExpandedEducationKey(expandedEducationKey === key ? null : key);
   };
 
-  const toggleHobby = (key) => {
-    setExpandedHobbyKey(expandedHobbyKey === key ? null : key);
+  // Function to handle the flip animation
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
   };
 
   return (
@@ -177,10 +179,53 @@ const AboutPage = () => {
       <div className="max-w-7xl mx-auto px-6 space-y-32">
         {/* Header Section */}
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative flex justify-center">
-            <div className="w-80 h-80 rounded-full border-8 border-[#1e3a8a] flex items-center justify-center p-2 shadow-lg">
-              <img src={AJMImage} alt="Profile" className="w-full h-full rounded-full object-cover" />
-            </div>
+          {/* Profile Picture with Flip Animation */}
+          <div className="relative flex justify-center flex-col items-center">
+            <motion.div
+              className="w-80 h-80 rounded-full border-8 border-[#1e3a8a] flex items-center justify-center p-2 shadow-lg cursor-pointer"
+              style={{ perspective: "1000px" }}
+              onClick={handleFlip}
+              animate={{ rotateY: isFlipped ? 180 : 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Front Side */}
+              <motion.div
+                className="absolute w-full h-full rounded-full"
+                style={{ backfaceVisibility: "hidden" }}
+                initial={{ rotateY: 0 }}
+                animate={{ rotateY: isFlipped ? 180 : 0 }}
+              >
+                <img
+                  src={AJMImage}
+                  alt="Profile"
+                  className="w-full h-full rounded-full object-cover"
+                />
+              </motion.div>
+
+              {/* Back Side */}
+              <motion.div
+                className="absolute w-full h-full rounded-full"
+                style={{ backfaceVisibility: "hidden", rotateY: 180 }}
+                initial={{ rotateY: 180 }}
+                animate={{ rotateY: isFlipped ? 0 : 180 }}
+              >
+                <img
+                  src={AJMImage2}
+                  alt="Another Profile"
+                  className="w-full h-full rounded-full object-cover"
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Flip Me Button */}
+            <motion.button
+              className="mt-4 px-4 py-2 bg-[#8B6F47]/50 text-white font-poppins font-semibold rounded-lg shadow-md flex items-center gap-2 hover:bg-[#8B6F47]/70 transition duration-300"
+              onClick={handleFlip}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <span>👀</span> Flip Me
+            </motion.button>
           </div>
 
           <div className="space-y-8 flex flex-col justify-between h-full">
@@ -221,7 +266,7 @@ const AboutPage = () => {
               return (
                 <div
                   key={uniqueKey}
-                  className={`${item.bgColor} border-2 ${item.borderColor} rounded-xl p-8 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg h-full flex flex-col justify-between self-start`} // Added self-start
+                  className={`${item.bgColor} border-2 ${item.borderColor} rounded-xl p-8 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg h-full flex flex-col justify-between`}
                 >
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold text-black">{item.role}</h3>
@@ -263,12 +308,12 @@ const AboutPage = () => {
             <h2 className="text-4xl font-poppins font-bold text-black">Education Journey</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            {education.map((item, index) => {
+            {education.slice(0, 2).map((item, index) => {
               const uniqueKey = getUniqueKey(0, index); // Only one row in this section
               return (
                 <div
                   key={uniqueKey}
-                  className={`${item.bgColor} border-2 ${item.borderColor} rounded-xl p-8 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg h-full flex flex-col justify-between self-start min-h-[300px]`} // Added self-start
+                  className={`${item.bgColor} border-2 ${item.borderColor} rounded-xl p-8 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg h-full flex flex-col justify-between`}
                 >
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold text-black">{item.degree}</h3>
@@ -299,6 +344,38 @@ const AboutPage = () => {
               );
             })}
           </div>
+          {/* High School Card - Centered in Bottom Row */}
+          <div className="flex justify-center">
+            <div
+              className={`${education[2].bgColor} border-2 ${education[2].borderColor} rounded-xl p-8 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg w-full md:w-1/2 flex flex-col justify-between`}
+            >
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-black">{education[2].degree}</h3>
+                <p className="text-gray-700 font-medium italic">{education[2].university} • {education[2].duration}</p>
+                <p className="text-gray-700 font-medium">{education[2].grade}</p>
+              </div>
+
+              <div className="mt-4 flex justify-center">
+                <button
+                  onClick={() => toggleEducation(getUniqueKey(1, 0))}
+                  className="px-4 py-1.5 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full border border-teal-300 flex items-center space-x-1 shadow-sm transition-all hover:shadow-md text-sm font-medium"
+                >
+                  <span>{expandedEducationKey === getUniqueKey(1, 0) ? "Less Details" : "More Details"}</span>
+                  {expandedEducationKey === getUniqueKey(1, 0) ? <FaChevronUp className="ml-1" /> : <FaChevronDown className="ml-1" />}
+                </button>
+              </div>
+
+              {expandedEducationKey === getUniqueKey(1, 0) && (
+                <div className="mt-6 space-y-2 bg-white bg-opacity-50 p-4 rounded-lg border border-teal-200">
+                  {education[2].details.map((detail, i) => (
+                    <p key={i} className="text-sm text-gray-800 flex items-start">
+                      <span className="text-teal-500 mr-2">•</span> {detail}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Hobbies Section */}
@@ -307,41 +384,29 @@ const AboutPage = () => {
             <div className="text-5xl text-black"><FaCode /></div>
             <h2 className="text-4xl font-poppins font-bold text-black">Hobbies & Interests</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 text-lg">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-lg">
             {categories.map((category, index) => {
               const uniqueKey = getUniqueKey(Math.floor(index / 3), index % 3); // Generate unique key based on row and column
               return (
                 <div
                   key={uniqueKey}
-                  className={`${category.bgColor} border-2 ${category.borderColor} rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between self-start group`} // Added self-start
+                  className={`${category.bgColor} border-2 ${category.borderColor} rounded-lg shadow-md p-5 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between transform hover:scale-105`}
                 >
                   <div>
-                    <div className="flex justify-between items-center mb-4">
+                    <div className="flex justify-between items-center mb-3">
                       <h3 className="text-2xl font-semibold text-black">{category.name}</h3>
                       <div className="text-4xl">{category.icon}</div>
                     </div>
-                    <p className="text-gray-700">{category.description}</p>
                   </div>
 
-                  <div className="mt-6 flex justify-center">
-                    <button
-                      onClick={() => toggleHobby(uniqueKey)}
-                      className={`px-3 py-1 ${category.bgColor} text-gray-700 rounded-full border ${category.borderColor} flex items-center space-x-1 text-sm font-medium shadow-sm hover:shadow-md transition-all opacity-0 group-hover:opacity-100`}
-                    >
-                      <span>{expandedHobbyKey === uniqueKey ? "Less Details" : "Learn more"}</span>
-                      {expandedHobbyKey === uniqueKey ? <FaChevronUp className="ml-1" /> : <FaChevronDown className="ml-1" />}
-                    </button>
+                  {/* Description Box */}
+                  <div className="mt-4 space-y-2 bg-white bg-opacity-50 p-3 rounded-md border border-gray-200">
+                    {category.details.map((detail, i) => (
+                      <p key={i} className="text-sm text-gray-800 flex items-start">
+                        <span className={`mr-2 text-${category.borderColor.split('-')[1]}-500`}>•</span> {detail}
+                      </p>
+                    ))}
                   </div>
-
-                  {expandedHobbyKey === uniqueKey && (
-                    <div className="mt-6 space-y-2 bg-white bg-opacity-50 p-4 rounded-lg border border-gray-200">
-                      {category.details.map((detail, i) => (
-                        <p key={i} className="text-sm text-gray-800 flex items-start">
-                          <span className={`mr-2 text-${category.borderColor.split('-')[1]}-500`}>•</span> {detail}
-                        </p>
-                      ))}
-                    </div>
-                  )}
                 </div>
               );
             })}

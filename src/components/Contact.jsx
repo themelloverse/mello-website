@@ -45,7 +45,7 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="John Doe"
+                placeholder="Full Name"
                 required
                 className="border border-black/30 bg-[#F9F7F3] text-gray-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gray-500 transition-all duration-300 font-poppins"
               />
@@ -58,7 +58,7 @@ const Contact = () => {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="john@example.com"
+                placeholder="Email Address"
                 required
                 className="border border-black/30 bg-[#F9F7F3] text-gray-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gray-500 transition-all duration-300 font-poppins"
               />
@@ -70,7 +70,7 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Write your message..."
+                placeholder="Write Your Message Here"
                 required
                 className="border border-black/30 bg-[#F9F7F3] text-gray-800 rounded-lg px-4 py-2 h-24 focus:ring-2 focus:ring-gray-500 transition-all duration-300 font-poppins"
               />

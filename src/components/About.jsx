@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AJMImage from "../assets/ajmpic.jpeg";
+import AJMImage2 from "../assets/ajmpic2.png";
 
 const About = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  // Function to handle the flip animation
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
     <section id="about" className="relative py-24 bg-[#F5F3EF]">
       <div className="relative container mx-auto px-6">
@@ -29,19 +37,58 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content - Profile Picture */}
           <motion.div
-            className="relative flex justify-center"
+            className="relative flex justify-center flex-col items-center"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-80 h-80 rounded-full border-8 border-black flex items-center justify-center p-2 shadow-lg">
-              <img
-                src={AJMImage}
-                alt="Profile"
-                className="w-full h-full rounded-full object-cover"
-              />
-            </div>
+            {/* Flipping Container */}
+            <motion.div
+              className="w-80 h-80 rounded-full border-8 border-black flex items-center justify-center p-2 shadow-lg cursor-pointer"
+              style={{ perspective: "1000px" }}
+              onClick={handleFlip}
+              animate={{ rotateY: isFlipped ? 180 : 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Front Side */}
+              <motion.div
+                className="absolute w-full h-full rounded-full"
+                style={{ backfaceVisibility: "hidden" }}
+                initial={{ rotateY: 0 }}
+                animate={{ rotateY: isFlipped ? 180 : 0 }}
+              >
+                <img
+                  src={AJMImage}
+                  alt="Profile"
+                  className="w-full h-full rounded-full object-cover"
+                />
+              </motion.div>
+
+              {/* Back Side */}
+              <motion.div
+                className="absolute w-full h-full rounded-full"
+                style={{ backfaceVisibility: "hidden", rotateY: 180 }}
+                initial={{ rotateY: 180 }}
+                animate={{ rotateY: isFlipped ? 0 : 180 }}
+              >
+                <img
+                  src={AJMImage2}
+                  alt="Another Profile"
+                  className="w-full h-full rounded-full object-cover"
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Flip Me Button */}
+            <motion.button
+              className="mt-4 px-4 py-2 bg-[#8B6F47]/50 text-white font-poppins font-semibold rounded-lg shadow-md flex items-center gap-2 hover:bg-[#8B6F47]/70 transition duration-300"
+              onClick={handleFlip}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <span>👀</span> Flip Me
+            </motion.button>
           </motion.div>
 
           {/* Right Content - Info Box */}

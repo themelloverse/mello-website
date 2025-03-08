@@ -39,25 +39,20 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 text-center relative fade-in">
-        {/* Role Tag Improved */}
+        {/* Improved Role Tag */}
         <div className="inline-flex items-center justify-center gap-3 mb-8 px-6 py-2 
-                border-4 border-[#4B2E1B] text-[#4B2E1B] rounded-full 
-                bg-[#EED9C4]/80 shadow-lg backdrop-blur transition-all duration-300 
-                font-bold text-lg tracking-wide hover:scale-105 hover:shadow-xl">
+        border-4 border-[#4B2E1B] text-[#4B2E1B] rounded-full 
+        bg-[#EED9C4]/60 shadow-lg backdrop-blur transition-all duration-300 
+        font-poppins font-bold text-lg tracking-wide hover:scale-105 hover:shadow-xl">
           <FaCode className="text-[#4B2E1B] text-2xl" />
           <span>Full Stack Developer</span>
         </div>
 
-
         {/* Name & Title */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-16 leading-tight font-poppins">
           Hello, I'm <br className="hidden md:inline" />
-          <span className="inline-block text-[#F5F3EF]">Anish John Moothedam</span>
+          <span className="inline-block text-[#F5F3EF] mt-2">Anish John Moothedam</span>
         </h1>
-
-        <p className="text-xl md:text-2xl text-[#F5F3EF] max-w-3xl mx-auto mb-12">
-          Crafting innovative software solutions at the intersection of <span className="text-[#F5F3EF] font-medium">design</span> and <span className="text-[#F5F3EF] font-medium">technology</span>.
-        </p>
 
         {/* Buttons with Reversed Colors */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">

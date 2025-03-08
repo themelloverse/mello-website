@@ -94,12 +94,12 @@ const Skills = () => {
               </div>
               <div className="flex flex-wrap justify-center gap-2">
                 {category.skills.map((skill) => (
-                  <span
+                  <div
                     key={skill}
-                    className="text-sm font-medium bg-white px-3 py-1 rounded-full border border-gray-300 shadow-sm"
+                    className="flex items-center px-3 py-1.5 bg-white bg-opacity-80 rounded-full border border-gray-400 shadow-sm hover:scale-105 transition-all duration-300"
                   >
-                    {skill}
-                  </span>
+                    <span className="text-sm font-medium">{skill}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>
