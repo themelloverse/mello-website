@@ -153,14 +153,12 @@ const categories = [
 ];
 
 const AboutPage = () => {
-  const [isFlipped, setIsFlipped] = useState(false); // State for flip animation
+  const [isFlipped, setIsFlipped] = useState(false);
   const [expandedExperienceKey, setExpandedExperienceKey] = useState(null);
   const [expandedEducationKey, setExpandedEducationKey] = useState(null);
 
-  // Generate unique keys for cards
   const getUniqueKey = (rowIndex, colIndex) => `${rowIndex}-${colIndex}`;
 
-  // Toggle functions using unique keys
   const toggleExperience = (key) => {
     setExpandedExperienceKey(expandedExperienceKey === key ? null : key);
   };
@@ -169,7 +167,6 @@ const AboutPage = () => {
     setExpandedEducationKey(expandedEducationKey === key ? null : key);
   };
 
-  // Function to handle the flip animation
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
   };
@@ -262,7 +259,7 @@ const AboutPage = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {experiences.map((item, index) => {
-              const uniqueKey = getUniqueKey(0, index); // Only one row in this section
+              const uniqueKey = getUniqueKey(0, index);
               return (
                 <div
                   key={uniqueKey}
@@ -271,7 +268,7 @@ const AboutPage = () => {
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold text-black">{item.role}</h3>
                     <p className="text-gray-700 font-medium italic">{item.company} • {item.duration}</p>
-                    <p className="text-gray-700 flex items-center">
+                    <p className="text-gray-700 font-medium flex items-center">
                       <FaMapMarkerAlt className="mr-2 text-blue-500" /> {item.location}
                     </p>
                   </div>
@@ -309,7 +306,7 @@ const AboutPage = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {education.slice(0, 2).map((item, index) => {
-              const uniqueKey = getUniqueKey(0, index); // Only one row in this section
+              const uniqueKey = getUniqueKey(0, index);
               return (
                 <div
                   key={uniqueKey}
@@ -319,6 +316,10 @@ const AboutPage = () => {
                     <h3 className="text-2xl font-bold text-black">{item.degree}</h3>
                     <p className="text-gray-700 font-medium italic">{item.university} • {item.duration}</p>
                     <p className="text-gray-700 font-medium">{item.grade}</p>
+                    <p className="text-gray-700 font-medium flex items-center">
+                      <FaMapMarkerAlt className="mr-2 text-teal-500" />
+                      {index === 0 ? "Windsor, Canada" : index === 1 ? "Coimbatore, India" : "Kolkata, India"}
+                    </p>
                   </div>
 
                   <div className="mt-4 flex justify-center">
@@ -353,6 +354,9 @@ const AboutPage = () => {
                 <h3 className="text-2xl font-bold text-black">{education[2].degree}</h3>
                 <p className="text-gray-700 font-medium italic">{education[2].university} • {education[2].duration}</p>
                 <p className="text-gray-700 font-medium">{education[2].grade}</p>
+                <p className="text-gray-700 font-medium flex items-center">
+                  <FaMapMarkerAlt className="mr-2 text-teal-500" /> Kolkata, India
+                </p>
               </div>
 
               <div className="mt-4 flex justify-center">
@@ -386,7 +390,7 @@ const AboutPage = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-lg">
             {categories.map((category, index) => {
-              const uniqueKey = getUniqueKey(Math.floor(index / 3), index % 3); // Generate unique key based on row and column
+              const uniqueKey = getUniqueKey(Math.floor(index / 3), index % 3);
               return (
                 <div
                   key={uniqueKey}
