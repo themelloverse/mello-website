@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { Loader2 } from "lucide-react";
+import emailjs from "emailjs-com"; // Import EmailJS
 import { useNavigate } from "react-router-dom";
 
 const ContactPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const [focusedField, setFocusedField] = useState(null);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const contactInfo = [
@@ -21,10 +21,36 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate an API call
-    setMessage("Message sent successfully!");
-    setLoading(false);
-    setFormData({ name: "", email: "", message: "" });
+
+    try {
+      // Send the main email to your inbox
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Main email template ID
+        e.target,
+        import.meta.env.VITE_EMAILJS_USER_ID
+      );
+
+      // Send an auto-reply email to the user
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID, // Auto-reply template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_USER_ID
+      );
+
+      setMessage("Message sent successfully!"); // Success message
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setMessage("Failed to send message. Please try again."); // Error message
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -46,8 +72,13 @@ const ContactPage = () => {
             <div className="bg-[#D9B6AC] border-2 border-[#9E6C65] p-8 rounded-xl shadow-lg text-black">
               <h3 className="text-3xl font-semibold mb-6 text-center">Send Me a Message</h3>
 
+              {/* Status Message */}
               {message && (
-                <div className="bg-[#F0D9D5] p-4 text-black rounded-md mb-4 text-center">
+                <div
+                  className={`p-4 mb-4 rounded-md text-center ${
+                    message.includes("successfully") ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                  }`}
+                >
                   {message}
                 </div>
               )}
@@ -59,7 +90,7 @@ const ContactPage = () => {
                   placeholder="Full Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 transition-all duration-200`}
+                  className="w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 transition-all duration-200"
                 />
 
                 <input
@@ -68,7 +99,7 @@ const ContactPage = () => {
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 transition-all duration-200`}
+                  className="w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 transition-all duration-200"
                 />
 
                 <textarea
@@ -77,7 +108,7 @@ const ContactPage = () => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 resize-none transition-all duration-200`}
+                  className="w-full border border-[#9E6C65] px-4 py-3 rounded-lg bg-[#E8CFC4] focus:outline-none focus:ring-2 focus:ring-black placeholder:text-black/60 resize-none transition-all duration-200"
                 />
 
                 <motion.button
@@ -99,7 +130,7 @@ const ContactPage = () => {
           </div>
 
           {/* Contact Information Section */}
-          <div className="bg-[#D9B6AC] border-2 border-[#9E6C65] p-8 rounded-xl shadow-lg text-black flex flex-col justify-between h-full">
+          <div className="bg-[#D9B6AC] border-2 border-[#9E6C65] p-8 rounded-xl shadow-lg text-black">
             <h3 className="text-3xl font-semibold mb-8 text-center">Contact Information</h3>
 
             <div className="space-y-6">

@@ -1,24 +1,52 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com"; // Import EmailJS
 
 const Contact = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [message, setMessage] = useState(""); // New state for status messages
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate an API call
-    setSubmitted(true);
-    setIsLoading(false);
-    setFormData({ name: "", email: "", message: "" });
+
+    try {
+      // Send the main email to your inbox
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Main email template ID
+        e.target,
+        import.meta.env.VITE_EMAILJS_USER_ID
+      );
+
+      // Send an auto-reply email to the user
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID, // Auto-reply template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_USER_ID
+      );
+
+      setSubmitted(true);
+      setMessage("Message sent successfully!"); // Success message
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setMessage("Failed to send message. Please try again."); // Error message
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -38,6 +66,17 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
+          {/* Status Message */}
+          {message && (
+            <div
+              className={`p-4 mb-4 rounded-md text-center ${
+                submitted ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+              }`}
+            >
+              {message}
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex flex-col text-left">
               <label className="text-gray-700 font-medium mb-1 font-poppins">Your Name</label>
@@ -100,7 +139,7 @@ const Contact = () => {
               window.scrollTo(0, 0);
               navigate("/contact");
             }}
-            className="px-8 py-3 border border-gray-400 text-gray-800 rounded-full bg-white hover:bg-gray-100 shadow-md transition duration-300 transform hover:scale-105 font-sans"
+            className="px-8 py-3 border border-gray-400 text-gray-800 rounded-full bg-white hover:bg-gray-100 shadow-md transition duration-300 font-sans"
             whileHover={{ scale: 1.05 }}
           >
             View Full Contact Page
