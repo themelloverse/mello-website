@@ -117,16 +117,17 @@ const Contact = () => {
 
             <motion.button
               type="submit"
-              className="w-full bg-[#8B6F47] text-white font-bold font-poppins rounded-lg py-3 hover:bg-[#B99F82] transition duration-300 shadow-md"
+              className="w-full bg-[#8B6F47] text-white font-bold font-poppins rounded-lg py-3 hover:bg-[#B99F82] transition duration-300 shadow-md flex justify-center items-center min-w-[150px]"
               disabled={isLoading}
+              whileHover={{ scale: 1.05 }} // Add hover animation here
             >
               {isLoading ? (
-                <>
+                <span className="flex items-center">
                   <Loader2 className="mr-2 animate-spin h-5 w-5" />
                   Sending...
-                </>
+                </span>
               ) : (
-                "Send Message"
+                <span>Send Message</span>
               )}
             </motion.button>
           </form>
