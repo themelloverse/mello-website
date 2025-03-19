@@ -32,12 +32,12 @@ jobs:
 
       # Step 5: Build the project with environment variables
       - name: Build project
-        run: npm run build
-        env:
-          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
-          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
-          VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID }}
-          VITE_EMAILJS_USER_ID: ${{ secrets.VITE_EMAILJS_USER_ID }}
+        run: |
+          echo "VITE_EMAILJS_SERVICE_ID=${{ secrets.VITE_EMAILJS_SERVICE_ID }}" > .env
+          echo "VITE_EMAILJS_TEMPLATE_ID=${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}" >> .env
+          echo "VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID=${{ secrets.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID }}" >> .env
+          echo "VITE_EMAILJS_USER_ID=${{ secrets.VITE_EMAILJS_USER_ID }}" >> .env
+          npm run build
 
       # Step 6: Deploy the project
       - name: Deploy
