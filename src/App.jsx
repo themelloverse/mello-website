@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -7,7 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import SkillPage from "./pages/SkillPage";
 import ProjectPage from "./pages/ProjectPage";
 import BlogPage from "./pages/BlogPage";
-import BlogPost from "./components/BlogPost"; // Updated import path
+import BlogPost from "./components/BlogPost";
 import ContactPage from "./pages/ContactPage";
 import durgapuja from "./pages/stories/durgapuja";
 import echo from "./pages/stories/echo";
@@ -29,7 +29,7 @@ const blogPosts = {
 // App component
 function App() {
   return (
-    <Router basename="/ajm-portfolio"> {/* Add basename here */}
+    <Router>
       <div className="App bg-white text-gray-900 min-h-screen flex flex-col">
         <Navbar />
         <div className="pt-16">
